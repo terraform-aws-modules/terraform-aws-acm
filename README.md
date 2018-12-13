@@ -23,8 +23,8 @@ module "acm" {
 
 ## Examples
 
-* [Complete with DNS validation](https://github.com/terraform-aws-modules/terraform-aws-acm/tree/master/examples/complete-dns-validation)
-* [Separate creation and validation](https://github.com/terraform-aws-modules/terraform-aws-acm/tree/master/examples/separate-creation-and-validation)
+* [Complete example with DNS validation (recommended)](https://github.com/terraform-aws-modules/terraform-aws-acm/tree/master/examples/complete-dns-validation)
+* [Complete example with EMAIL validation](https://github.com/terraform-aws-modules/terraform-aws-acm/tree/master/examples/complete-email-validation)
 
 ## Conditional creation and validation
 
