@@ -23,7 +23,7 @@ Note that this example may create resources which cost money. Run `terraform des
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
-| domain\_name | Domain name to use as Route53 zone and ACM certificate | string | `my-domain-name.com` | no |
+| domain\_name | Domain name to use as Route53 zone and ACM certificate | string | `"my-domain-name.com"` | no |
 
 ## Outputs
 

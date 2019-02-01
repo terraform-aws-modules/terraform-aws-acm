@@ -23,7 +23,7 @@ resource "aws_acm_certificate" "this" {
 //}
 
 resource "aws_route53_record" "validation" {
-  count = "${var.validation_method == "DNS" && var.validate_certificate ? 1 :0}"
+  count = "${var.create_certificate && var.validation_method == "DNS" && var.validate_certificate ? 1 :0}"
 
   zone_id = "${var.zone_id}"
   name    = "${aws_acm_certificate.this.domain_validation_options.0.resource_record_name}"
