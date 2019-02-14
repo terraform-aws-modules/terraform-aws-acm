@@ -23,15 +23,15 @@ resource "aws_acm_certificate" "this" {
 //}
 
 resource "aws_route53_record" "validation" {
-  count = "${var.create_certificate && var.validation_method == "DNS" && var.validate_certificate ? 1 :0}"
+  count = "${var.create_certificate && var.validation_method == "DNS" && var.validate_certificate ? length(var.subject_alternative_names) + 1 : 0}"
 
   zone_id = "${var.zone_id}"
-  name    = "${aws_acm_certificate.this.domain_validation_options.0.resource_record_name}"
-  type    = "${aws_acm_certificate.this.domain_validation_options.0.resource_record_type}"
+  name    = "${lookup(aws_acm_certificate.this.domain_validation_options[count.index], "resource_record_name")}"
+  type    = "${lookup(aws_acm_certificate.this.domain_validation_options[count.index], "resource_record_type")}"
   ttl     = 60
 
   records = [
-    "${aws_acm_certificate.this.domain_validation_options.0.resource_record_value}",
+    "${lookup(aws_acm_certificate.this.domain_validation_options[count.index], "resource_record_value")}"
   ]
 }
 
@@ -41,6 +41,6 @@ resource "aws_acm_certificate_validation" "this" {
   certificate_arn = "${aws_acm_certificate.this.arn}"
 
   validation_record_fqdns = [
-    "${aws_route53_record.validation.fqdn}",
+    "${aws_route53_record.validation.*.fqdn}",
   ]
 }
