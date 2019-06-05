@@ -6,7 +6,7 @@
 <a name="v2.0.0"></a>
 ## [v2.0.0] - 2019-06-05
 
-- Upgraded to Terraform 0.12 and improved support for wildcard domain names
+- Terraform.012 upgrade ([#9](https://github.com/terraform-aws-modules/terraform-aws-acm/issues/9))
 
 
 <a name="v1.3.0"></a>
