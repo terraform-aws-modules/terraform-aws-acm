@@ -2,17 +2,25 @@
 
 Terraform module which creates ACM certificates and validates them using Route53 DNS (recommended) or e-mail.
 
+## Terraform versions
+
+Terraform 0.12. Pin module version to `~> v2.0`. Submit pull-requests to `master` branch.
+
+Terraform 0.11. Pin module version to `~> v1.0`. Submit pull-requests to `terraform011` branch.
+
 ## Usage with Route53 DNS validation (recommended)
 
 ```hcl
 module "acm" {
-  source = "terraform-aws-modules/acm/aws"
+  source  = "terraform-aws-modules/acm/aws"
+  version = "~> v2.0"
 
   domain_name  = "my-domain.com"
   zone_id      = "Z2ES7B9AZ6SHAE"
 
   subject_alternative_names = [
     "*.my-domain.com",
+    "app.sub.my-domain.com",
   ]
 
   tags = {
@@ -53,6 +61,7 @@ module "acm" {
 ## Notes
 
 * For use in an automated pipeline consider setting the `wait_for_validation = false` to avoid waiting for validation to complete or error after a 45 minute timeout.
+* `domain_name` can not be wildcard, but `subject_alternative_names` can include wildcards.
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Inputs
