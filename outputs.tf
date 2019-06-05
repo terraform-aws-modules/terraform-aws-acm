@@ -15,7 +15,7 @@ output "this_acm_certificate_validation_emails" {
 
 output "validation_route53_record_fqdns" {
   description = "List of FQDNs built using the zone domain and name."
-  value       = [] #aws_route53_record.validation.*.fqdn
+  value       = aws_route53_record.validation.*.fqdn
 }
 
 output "distinct_domain_names" {
