@@ -8,3 +8,8 @@ repos:
   rev: v2.1.0
   hooks:
     - id: check-merge-conflict
+    - id: check-symlinks
+    - id: detect-private-key
+    - id: end-of-file-fixer
+    - id: requirements-txt-fixer
+    - id: trailing-whitespace

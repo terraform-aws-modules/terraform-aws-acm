@@ -30,6 +30,8 @@ resource "aws_route53_record" "validation" {
   type    = "${lookup(aws_acm_certificate.this.domain_validation_options[count.index], "resource_record_type")}"
   ttl     = 60
   records = ["${lookup(aws_acm_certificate.this.domain_validation_options[count.index], "resource_record_value")}"]
+
+  allow_overwrite = "${var.validation_allow_overwrite_records}"
 }
 
 resource "aws_acm_certificate_validation" "this" {
