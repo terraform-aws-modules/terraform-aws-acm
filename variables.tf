@@ -8,6 +8,11 @@ variable "validate_certificate" {
   default     = true
 }
 
+variable "validation_allow_overwrite_records" {
+  description = "Whether to allow overwrite of Route53 records"
+  default     = true
+}
+
 variable "wait_for_validation" {
   description = "Whether to wait for the validation to complete"
   default     = true
