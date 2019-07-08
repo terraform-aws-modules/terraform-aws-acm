@@ -3,9 +3,16 @@
 
 
 
+<a name="v2.2.0"></a>
+## [v2.2.0] - 2019-07-08
+
+- Improved access by index to help with deletion (relates to [#10](https://github.com/terraform-aws-modules/terraform-aws-acm/issues/10))
+
+
 <a name="v2.1.0"></a>
 ## [v2.1.0] - 2019-06-17
 
+- Updated CHANGELOG
 - Updated pre-commit-terraform to support terraform-docs and Terraform 0.12
 - Updated CHANGELOG
 - Terraform.012 upgrade ([#9](https://github.com/terraform-aws-modules/terraform-aws-acm/issues/9))
@@ -50,7 +57,8 @@
 - Initial commit with all the code
 
 
-[Unreleased]: https://github.com/terraform-aws-modules/terraform-aws-acm/compare/v2.1.0...HEAD
+[Unreleased]: https://github.com/terraform-aws-modules/terraform-aws-acm/compare/v2.2.0...HEAD
+[v2.2.0]: https://github.com/terraform-aws-modules/terraform-aws-acm/compare/v2.1.0...v2.2.0
 [v2.1.0]: https://github.com/terraform-aws-modules/terraform-aws-acm/compare/v1.4.0...v2.1.0
 [v1.4.0]: https://github.com/terraform-aws-modules/terraform-aws-acm/compare/v2.0.0...v1.4.0
 [v2.0.0]: https://github.com/terraform-aws-modules/terraform-aws-acm/compare/v1.3.0...v2.0.0
