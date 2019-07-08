@@ -30,12 +30,12 @@ resource "aws_route53_record" "validation" {
   count = var.create_certificate && var.validation_method == "DNS" && var.validate_certificate ? length(local.distinct_domain_names) : 0
 
   zone_id = var.zone_id
-  name    = local.validation_domains[count.index]["resource_record_name"]
-  type    = local.validation_domains[count.index]["resource_record_type"]
+  name    = element(local.validation_domains, count.index)["resource_record_name"]
+  type    = element(local.validation_domains, count.index)["resource_record_type"]
   ttl     = 60
 
   records = [
-    local.validation_domains[count.index]["resource_record_value"]
+    element(local.validation_domains, count.index)["resource_record_value"]
   ]
 
   allow_overwrite = var.validation_allow_overwrite_records
