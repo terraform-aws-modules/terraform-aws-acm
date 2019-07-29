@@ -82,11 +82,9 @@ module "acm" {
 
 | Name | Description |
 |------|-------------|
-| distinct\_domain\_names | List of distinct domains names used for the validation. |
 | this\_acm\_certificate\_arn | The ARN of the certificate |
 | this\_acm\_certificate\_domain\_validation\_options | A list of attributes to feed into other resources to complete certificate validation. Can have more than one element, e.g. if SANs are defined. Only set if DNS-validation was used. |
 | this\_acm\_certificate\_validation\_emails | A list of addresses that received a validation E-Mail. Only set if EMAIL-validation was used. |
-| validation\_domains | List of distinct domain validation options. This is useful if subject alternative names contain wildcards. |
 | validation\_route53\_record\_fqdns | List of FQDNs built using the zone domain and name. |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
