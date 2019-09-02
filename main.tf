@@ -1,15 +1,9 @@
 locals {
   // Get distinct list of domains and SANs
-  distinct_domain_names = distinct(concat([var.domain_name], data.template_file.breakup_san.*.rendered))
+  distinct_domain_names = distinct(concat([var.domain_name], [for s in var.subject_alternative_names: replace(s, "*.", "")]))
 
   // Copy domain_validation_options for the distinct domain names
   validation_domains = [for k, v in aws_acm_certificate.this[0].domain_validation_options : tomap(v) if contains(local.distinct_domain_names, v.domain_name)]
-}
-
-data "template_file" "breakup_san" {
-  count = length(var.subject_alternative_names)
-
-  template = replace(var.subject_alternative_names[count.index], "*.", "")
 }
 
 resource "aws_acm_certificate" "this" {
@@ -39,6 +33,8 @@ resource "aws_route53_record" "validation" {
   ]
 
   allow_overwrite = var.validation_allow_overwrite_records
+
+  depends_on = [aws_acm_certificate.this]
 }
 
 resource "aws_acm_certificate_validation" "this" {
