@@ -58,6 +58,26 @@ module "acm" {
 }
 ```
 
+## Using a different region
+
+If you want to create the certificate in a region different from the "current" one (for example because of CloudFront that requires us-east-1), you can do that via [`providers`](https://www.terraform.io/docs/configuration/modules.html#providers):
+
+```hcl
+provider "aws" {
+    alias  = "use1"
+    region = "us-east-1"
+}
+module "my_certificate" {
+  source = "terraform-aws-modules/acm/aws"
+  version = "~> v2.0"
+  ...
+  providers = {
+    "aws" = "aws.use1"
+  }
+}
+```
+
+
 ## Notes
 
 * For use in an automated pipeline consider setting the `wait_for_validation = false` to avoid waiting for validation to complete or error after a 45 minute timeout.
