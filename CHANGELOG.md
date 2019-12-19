@@ -3,9 +3,17 @@
 
 
 
+<a name="v2.5.0"></a>
+## [v2.5.0] - 2019-12-19
+
+- Updated example with multiple SANs after PR [#32](https://github.com/terraform-aws-modules/terraform-aws-acm/issues/32)
+- Fixing validation records when wildcard is present with alternative domains ([#32](https://github.com/terraform-aws-modules/terraform-aws-acm/issues/32))
+
+
 <a name="v2.4.0"></a>
 ## [v2.4.0] - 2019-11-12
 
+- Updated CHANGELOG
 - Updated pre-commit hooks
 - Define local.validation_domains properly. ([#28](https://github.com/terraform-aws-modules/terraform-aws-acm/issues/28))
 
@@ -73,7 +81,8 @@
 - Initial commit with all the code
 
 
-[Unreleased]: https://github.com/terraform-aws-modules/terraform-aws-acm/compare/v2.4.0...HEAD
+[Unreleased]: https://github.com/terraform-aws-modules/terraform-aws-acm/compare/v2.5.0...HEAD
+[v2.5.0]: https://github.com/terraform-aws-modules/terraform-aws-acm/compare/v2.4.0...v2.5.0
 [v2.4.0]: https://github.com/terraform-aws-modules/terraform-aws-acm/compare/v2.3.0...v2.4.0
 [v2.3.0]: https://github.com/terraform-aws-modules/terraform-aws-acm/compare/v2.2.0...v2.3.0
 [v2.2.0]: https://github.com/terraform-aws-modules/terraform-aws-acm/compare/v2.1.0...v2.2.0
