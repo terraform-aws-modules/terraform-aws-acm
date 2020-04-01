@@ -23,6 +23,11 @@ resource "aws_route53_zone" "this" {
 module "acm" {
   source = "../../"
 
+  providers = {
+    aws.dns = aws
+    aws.acm = aws
+  }
+
   domain_name = local.domain_name
   zone_id     = coalescelist(data.aws_route53_zone.this.*.zone_id, aws_route53_zone.this.*.zone_id)[0]
 

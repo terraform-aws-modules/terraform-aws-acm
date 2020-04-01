@@ -1,3 +1,9 @@
+provider "aws" {}
+
+provider "aws" {
+  alias = "dns"
+}
+
 variable "domain_name" {
   description = "Domain name to use as Route53 zone and ACM certificate"
   default     = "my-domain-name2.com"
@@ -9,6 +15,11 @@ resource "aws_route53_zone" "this" {
 
 module "acm" {
   source = "../../"
+
+  providers = {
+    aws.dns = aws.dns
+    aws.acm = aws
+  }
 
   domain_name = var.domain_name
   zone_id     = aws_route53_zone.this.zone_id
