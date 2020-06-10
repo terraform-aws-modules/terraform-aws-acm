@@ -64,13 +64,6 @@ module "acm" {
 * `domain_name` can not be wildcard, but `subject_alternative_names` can include wildcards.
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
-## Requirements
-
-| Name | Version |
-|------|---------|
-| terraform | >= 0.12.6, < 0.14 |
-| aws | ~> 2.53 |
-
 ## Providers
 
 | Name | Version |
@@ -80,8 +73,8 @@ module "acm" {
 ## Inputs
 
 | Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:--------:|
-| certificate\_transparency\_logging\_preference | Specifies whether certificate details should be added to a certificate transparency log | `bool` | `false` | no |
+|------|-------------|------|---------|:-----:|
+| certificate\_transparency\_logging\_preference | Specifies whether certificate details should be added to a certificate transparency log | `bool` | `true` | no |
 | create\_certificate | Whether to create ACM certificate | `bool` | `true` | no |
 | domain\_name | A domain name for which the certificate should be issued | `string` | `""` | no |
 | subject\_alternative\_names | A list of domains that should be SANs in the issued certificate | `list(string)` | `[]` | no |
