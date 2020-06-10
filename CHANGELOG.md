@@ -1,6 +1,23 @@
+# Change Log
+
+All notable changes to this project will be documented in this file.
+
 <a name="unreleased"></a>
 ## [Unreleased]
 
+
+
+<a name="v2.6.0"></a>
+## [v2.6.0] - 2020-06-10
+
+- Updated README
+- feat: Add certificate transparency log option to ACM ([#18](https://github.com/terraform-aws-modules/terraform-aws-acm/issues/18))
+- Update ".pre-commit-config.yaml".
+- Create "LICENSE".
+- Create ".gitignore".
+- Create ".pre-commit-config.yaml".
+- Create "Makefile".
+- Create ".editorconfig".
 
 
 <a name="v2.5.0"></a>
@@ -13,7 +30,6 @@
 <a name="v2.4.0"></a>
 ## [v2.4.0] - 2019-11-12
 
-- Updated CHANGELOG
 - Updated pre-commit hooks
 - Define local.validation_domains properly. ([#28](https://github.com/terraform-aws-modules/terraform-aws-acm/issues/28))
 
@@ -21,7 +37,6 @@
 <a name="v2.3.0"></a>
 ## [v2.3.0] - 2019-09-02
 
-- Updated CHANGELOG
 - Updated pre-commit hooks
 - Replace template usage with 0.12 compatible list comprehension ([#17](https://github.com/terraform-aws-modules/terraform-aws-acm/issues/17))
 
@@ -29,16 +44,13 @@
 <a name="v2.2.0"></a>
 ## [v2.2.0] - 2019-07-08
 
-- Updated CHANGELOG
 - Improved access by index to help with deletion (relates to [#10](https://github.com/terraform-aws-modules/terraform-aws-acm/issues/10))
 
 
 <a name="v2.1.0"></a>
 ## [v2.1.0] - 2019-06-17
 
-- Updated CHANGELOG
 - Updated pre-commit-terraform to support terraform-docs and Terraform 0.12
-- Updated CHANGELOG
 - Terraform.012 upgrade ([#9](https://github.com/terraform-aws-modules/terraform-aws-acm/issues/9))
 
 
@@ -52,7 +64,6 @@
 <a name="v2.0.0"></a>
 ## [v2.0.0] - 2019-06-05
 
-- Updated CHANGELOG
 - Terraform.012 upgrade ([#9](https://github.com/terraform-aws-modules/terraform-aws-acm/issues/9))
 
 
@@ -81,7 +92,8 @@
 - Initial commit with all the code
 
 
-[Unreleased]: https://github.com/terraform-aws-modules/terraform-aws-acm/compare/v2.5.0...HEAD
+[Unreleased]: https://github.com/terraform-aws-modules/terraform-aws-acm/compare/v2.6.0...HEAD
+[v2.6.0]: https://github.com/terraform-aws-modules/terraform-aws-acm/compare/v2.5.0...v2.6.0
 [v2.5.0]: https://github.com/terraform-aws-modules/terraform-aws-acm/compare/v2.4.0...v2.5.0
 [v2.4.0]: https://github.com/terraform-aws-modules/terraform-aws-acm/compare/v2.3.0...v2.4.0
 [v2.3.0]: https://github.com/terraform-aws-modules/terraform-aws-acm/compare/v2.2.0...v2.3.0
