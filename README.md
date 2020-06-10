@@ -64,20 +64,33 @@ module "acm" {
 * `domain_name` can not be wildcard, but `subject_alternative_names` can include wildcards.
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+## Requirements
+
+| Name | Version |
+|------|---------|
+| terraform | >= 0.12.6, < 0.14 |
+| aws | ~> 2.53 |
+
+## Providers
+
+| Name | Version |
+|------|---------|
+| aws | ~> 2.53 |
+
 ## Inputs
 
 | Name | Description | Type | Default | Required |
-|------|-------------|:----:|:-----:|:-----:|
-| certificate\_transparency\_logging\_preference | Specifies whether certificate details should be added to a certificate transparency log | bool | `"false"` | no |
-| create\_certificate | Whether to create ACM certificate | bool | `"true"` | no |
-| domain\_name | A domain name for which the certificate should be issued | string | `""` | no |
-| subject\_alternative\_names | A list of domains that should be SANs in the issued certificate | list(string) | `[]` | no |
-| tags | A mapping of tags to assign to the resource | map(string) | `{}` | no |
-| validate\_certificate | Whether to validate certificate by creating Route53 record | bool | `"true"` | no |
-| validation\_allow\_overwrite\_records | Whether to allow overwrite of Route53 records | bool | `"true"` | no |
-| validation\_method | Which method to use for validation. DNS or EMAIL are valid, NONE can be used for certificates that were imported into ACM and then into Terraform. | string | `"DNS"` | no |
-| wait\_for\_validation | Whether to wait for the validation to complete | bool | `"true"` | no |
-| zone\_id | The ID of the hosted zone to contain this record. | string | `""` | no |
+|------|-------------|------|---------|:--------:|
+| certificate\_transparency\_logging\_preference | Specifies whether certificate details should be added to a certificate transparency log | `bool` | `false` | no |
+| create\_certificate | Whether to create ACM certificate | `bool` | `true` | no |
+| domain\_name | A domain name for which the certificate should be issued | `string` | `""` | no |
+| subject\_alternative\_names | A list of domains that should be SANs in the issued certificate | `list(string)` | `[]` | no |
+| tags | A mapping of tags to assign to the resource | `map(string)` | `{}` | no |
+| validate\_certificate | Whether to validate certificate by creating Route53 record | `bool` | `true` | no |
+| validation\_allow\_overwrite\_records | Whether to allow overwrite of Route53 records | `bool` | `true` | no |
+| validation\_method | Which method to use for validation. DNS or EMAIL are valid, NONE can be used for certificates that were imported into ACM and then into Terraform. | `string` | `"DNS"` | no |
+| wait\_for\_validation | Whether to wait for the validation to complete | `bool` | `true` | no |
+| zone\_id | The ID of the hosted zone to contain this record. | `string` | `""` | no |
 
 ## Outputs
 

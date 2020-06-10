@@ -32,11 +32,21 @@ $ terraform apply
 Note that this example may create resources which cost money. Run `terraform destroy` when you don't need these resources.
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+## Requirements
+
+No requirements.
+
+## Providers
+
+| Name | Version |
+|------|---------|
+| aws | n/a |
+
 ## Inputs
 
 | Name | Description | Type | Default | Required |
-|------|-------------|:----:|:-----:|:-----:|
-| domain\_name | Domain name to use as Route53 zone and ACM certificate | string | `"my-domain-name2.com"` | no |
+|------|-------------|------|---------|:--------:|
+| domain\_name | Domain name to use as Route53 zone and ACM certificate | `string` | `"my-domain-name2.com"` | no |
 
 ## Outputs
 
