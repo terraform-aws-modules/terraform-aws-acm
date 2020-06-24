@@ -57,3 +57,9 @@ variable "tags" {
   type        = map(string)
   default     = {}
 }
+
+variable "dns_ttl" {
+  description = "The TTL of DNS recursive resolvers to cache information about this record."
+  type        = number
+  default     = 60
+}
