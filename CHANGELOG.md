@@ -7,6 +7,12 @@ All notable changes to this project will be documented in this file.
 
 
 
+<a name="v2.9.0"></a>
+## [v2.9.0] - 2020-06-24
+
+- feat: Added dns ttl as variable ([#54](https://github.com/terraform-aws-modules/terraform-aws-acm/issues/54))
+
+
 <a name="v2.8.0"></a>
 ## [v2.8.0] - 2020-06-11
 
@@ -104,7 +110,8 @@ All notable changes to this project will be documented in this file.
 - Initial commit with all the code
 
 
-[Unreleased]: https://github.com/terraform-aws-modules/terraform-aws-acm/compare/v2.8.0...HEAD
+[Unreleased]: https://github.com/terraform-aws-modules/terraform-aws-acm/compare/v2.9.0...HEAD
+[v2.9.0]: https://github.com/terraform-aws-modules/terraform-aws-acm/compare/v2.8.0...v2.9.0
 [v2.8.0]: https://github.com/terraform-aws-modules/terraform-aws-acm/compare/v2.7.0...v2.8.0
 [v2.7.0]: https://github.com/terraform-aws-modules/terraform-aws-acm/compare/v2.6.0...v2.7.0
 [v2.6.0]: https://github.com/terraform-aws-modules/terraform-aws-acm/compare/v2.5.0...v2.6.0
