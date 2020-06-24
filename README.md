@@ -83,6 +83,7 @@ module "acm" {
 |------|-------------|------|---------|:--------:|
 | certificate\_transparency\_logging\_preference | Specifies whether certificate details should be added to a certificate transparency log | `bool` | `true` | no |
 | create\_certificate | Whether to create ACM certificate | `bool` | `true` | no |
+| dns\_ttl | The TTL of DNS recursive resolvers to cache information about this record. | `number` | `60` | no |
 | domain\_name | A domain name for which the certificate should be issued | `string` | `""` | no |
 | subject\_alternative\_names | A list of domains that should be SANs in the issued certificate | `list(string)` | `[]` | no |
 | tags | A mapping of tags to assign to the resource | `map(string)` | `{}` | no |
