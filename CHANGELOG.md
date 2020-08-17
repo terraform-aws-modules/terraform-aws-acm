@@ -7,6 +7,12 @@ All notable changes to this project will be documented in this file.
 
 
 
+<a name="v2.11.0"></a>
+## [v2.11.0] - 2020-08-17
+
+- fix: Wait for correct certificate_arn when validation is enabled ([#55](https://github.com/terraform-aws-modules/terraform-aws-acm/issues/55))
+
+
 <a name="v2.10.0"></a>
 ## [v2.10.0] - 2020-08-13
 
@@ -116,7 +122,8 @@ All notable changes to this project will be documented in this file.
 - Initial commit with all the code
 
 
-[Unreleased]: https://github.com/terraform-aws-modules/terraform-aws-acm/compare/v2.10.0...HEAD
+[Unreleased]: https://github.com/terraform-aws-modules/terraform-aws-acm/compare/v2.11.0...HEAD
+[v2.11.0]: https://github.com/terraform-aws-modules/terraform-aws-acm/compare/v2.10.0...v2.11.0
 [v2.10.0]: https://github.com/terraform-aws-modules/terraform-aws-acm/compare/v2.9.0...v2.10.0
 [v2.9.0]: https://github.com/terraform-aws-modules/terraform-aws-acm/compare/v2.8.0...v2.9.0
 [v2.8.0]: https://github.com/terraform-aws-modules/terraform-aws-acm/compare/v2.7.0...v2.8.0
