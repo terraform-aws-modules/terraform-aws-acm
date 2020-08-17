@@ -1,6 +1,6 @@
 output "this_acm_certificate_arn" {
   description = "The ARN of the certificate"
-  value =  local.should_wait_for_validation ? element(concat(aws_acm_certificate_validation.this.*.certificate_arn, [""]), 0) : element(concat(aws_acm_certificate.this.*.arn, [""]), 0)
+  value       = element(concat(aws_acm_certificate_validation.this.*.certificate_arn, aws_acm_certificate.this.*.arn, [""]), 0)
 }
 
 output "this_acm_certificate_domain_validation_options" {

@@ -4,9 +4,6 @@ locals {
 
   // Copy domain_validation_options for the distinct domain names
   validation_domains = var.create_certificate ? [for k, v in aws_acm_certificate.this[0].domain_validation_options : tomap(v) if contains(local.distinct_domain_names, replace(v.domain_name, "*.", ""))] : []
-
-  // This variable tells us if it needs to validate or not
-  should_wait_for_validation = var.create_certificate && var.validation_method == "DNS" && var.validate_certificate && var.wait_for_validation ? true : false
 }
 
 resource "aws_acm_certificate" "this" {
@@ -45,7 +42,7 @@ resource "aws_route53_record" "validation" {
 }
 
 resource "aws_acm_certificate_validation" "this" {
-  count =  local.should_wait_for_validation ? 1 : 0
+  count = var.create_certificate && var.validation_method == "DNS" && var.validate_certificate && var.wait_for_validation ? 1 : 0
 
   certificate_arn = aws_acm_certificate.this[0].arn
 
