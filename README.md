@@ -26,6 +26,13 @@ module "acm" {
   tags = {
     Name = "my-domain.com"
   }
+
+  providers = {
+    aws = aws
+    # use different aws provider
+    # if hosted zone is in another aws account
+    aws.route53 = aws
+  }
 }
 ```
 
@@ -33,6 +40,49 @@ module "acm" {
 
 * [Complete example with DNS validation (recommended)](https://github.com/terraform-aws-modules/terraform-aws-acm/tree/master/examples/complete-dns-validation)
 * [Complete example with EMAIL validation](https://github.com/terraform-aws-modules/terraform-aws-acm/tree/master/examples/complete-email-validation)
+
+## hosted zone in another AWS account
+
+In certain scenarios if hosted zone is present in another AWS account, then we can pass the a different aws provider to the module.
+
+### hosted zone in same account
+
+```hcl
+module "acm" {
+  source  = "terraform-aws-modules/acm/aws"
+  version = "~> v2.0"
+
+  # ... omitted
+
+  providers = {
+    aws = aws
+    aws.route53 = aws
+  }
+```
+
+### hosted zone in different account
+
+```hcl
+provider "aws" {
+  # ... omitted
+}
+
+provider "aws" {
+  alias = "production"
+  # ... omitted
+}
+
+module "acm" {
+  source  = "terraform-aws-modules/acm/aws"
+  version = "~> v2.0"
+
+  # ... omitted
+
+  providers = {
+    aws = aws
+    aws.route53 = aws.production
+  }
+```
 
 ## Conditional creation and validation
 

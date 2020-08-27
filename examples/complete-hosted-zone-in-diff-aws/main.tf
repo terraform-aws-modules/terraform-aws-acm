@@ -2,6 +2,13 @@ provider "aws" {
   region = "us-east-1"
 }
 
+# this is where hosted zone present/need to be created
+provider "aws" {
+  region = "us-east-1"
+  alias  = "production"
+}
+
+
 locals {
   # Use existing (via data source) or create new zone (will fail validation, if zone is not reachable)
   use_existing_route53_zone = true
@@ -13,6 +20,8 @@ locals {
 }
 
 data "aws_route53_zone" "this" {
+  provider = aws.production
+
   count = local.use_existing_route53_zone ? 1 : 0
 
   name         = local.domain_name
@@ -20,6 +29,8 @@ data "aws_route53_zone" "this" {
 }
 
 resource "aws_route53_zone" "this" {
+  provider = aws.production
+
   count = ! local.use_existing_route53_zone ? 1 : 0
   name  = local.domain_name
 }
@@ -48,6 +59,6 @@ module "acm" {
     aws = aws
     # use different aws provider
     # if hosted zone is in another aws account
-    aws.route53 = aws
+    aws.route53 = aws.production
   }
 }

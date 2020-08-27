@@ -1,3 +1,7 @@
+provider "aws" {
+  region = "us-east-1"
+}
+
 variable "domain_name" {
   description = "Domain name to use as Route53 zone and ACM certificate"
   default     = "my-domain-name2.com"
@@ -21,5 +25,12 @@ module "acm" {
 
   tags = {
     Name = var.domain_name
+  }
+
+  providers = {
+    aws = aws
+    # use different aws provider
+    # if hosted zone is in another aws account
+    aws.route53 = aws
   }
 }

@@ -1,3 +1,8 @@
+// This provider should be used for route 53 resources where hosted zone exits
+provider "aws" {
+  alias = "route53"
+}
+
 locals {
   // Get distinct list of domains and SANs
   distinct_domain_names = distinct(concat([var.domain_name], [for s in var.subject_alternative_names : replace(s, "*.", "")]))
@@ -25,6 +30,8 @@ resource "aws_acm_certificate" "this" {
 }
 
 resource "aws_route53_record" "validation" {
+  provider = aws.route53
+
   count = var.create_certificate && var.validation_method == "DNS" && var.validate_certificate ? length(local.distinct_domain_names) + 1 : 0
 
   zone_id = var.zone_id
