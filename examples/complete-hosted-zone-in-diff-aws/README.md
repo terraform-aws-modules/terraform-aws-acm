@@ -1,12 +1,18 @@
 # Complete ACM example with Route53 DNS validation in another AWS account
 
-Configuration in this directory creates new Route53 zone in another AWS account with provided credentials and ACM certificate (valid for the domain name and wildcard) in current account.
+Configuration in this directory creates new / use existing Route53 zone in `production`(another) AWS account with provided credentials and ACM certificate (valid for the domain name and wildcard) in `development` aws account.
 
 Also, ACM certificate is being validate using DNS method.
 
-This is a complete example which fits most of scenarios.
-
 ## Usage
+
+Make sure you have correct `aws` credentials set using profiles `development` and `production`.
+
+Where,
+development - `aws` account where ACM certificate needs to be created
+production  - `aws` account where Route 53 zone exists / need to be created for DNS validation.
+
+> Note: As per the use case, `aws` provider can be updated to use [assume_role](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#assume-role) for `production` account in `provider` configuration.
 
 To run this example you need to execute:
 

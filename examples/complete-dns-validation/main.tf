@@ -46,8 +46,7 @@ module "acm" {
 
   providers = {
     aws = aws
-    # use different aws provider
-    # if hosted zone is in another aws account
+    # hosted zone in same account
     aws.route53 = aws
   }
 }

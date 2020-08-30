@@ -1,17 +1,19 @@
 provider "aws" {
   region = "us-east-1"
+  profile = "development"
 }
 
 # this is where hosted zone present/need to be created
 provider "aws" {
   region = "us-east-1"
   alias  = "production"
+  profile = "production"
 }
 
 
 locals {
   # Use existing (via data source) or create new zone (will fail validation, if zone is not reachable)
-  use_existing_route53_zone = true
+  use_existing_route53_zone = false
 
   domain = "terraform-aws-modules.modules.tf"
 
@@ -42,11 +44,8 @@ module "acm" {
   zone_id     = coalescelist(data.aws_route53_zone.this.*.zone_id, aws_route53_zone.this.*.zone_id)[0]
 
   subject_alternative_names = [
-    "*.alerts.${local.domain_name}",
-    "*.something.${local.domain_name}",
-    "*.news.${local.domain_name}",
-    "*.info.${local.domain_name}",
-    "new.sub.${local.domain_name}",
+    "dev.${local.domain_name}",
+    "*.dev.${local.domain_name}",
   ]
 
   wait_for_validation = true
@@ -57,8 +56,7 @@ module "acm" {
 
   providers = {
     aws = aws
-    # use different aws provider
-    # if hosted zone is in another aws account
+    # hosted zone in production(another) account
     aws.route53 = aws.production
   }
 }
