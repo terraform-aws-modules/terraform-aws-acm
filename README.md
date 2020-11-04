@@ -68,14 +68,14 @@ module "acm" {
 
 | Name | Version |
 |------|---------|
-| terraform | >= 0.12.6, < 0.14 |
-| aws | >= 2.53, < 4.0 |
+| terraform | >= 0.12.6 |
+| aws | >= 2.53 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| aws | >= 2.53, < 4.0 |
+| aws | >= 2.53 |
 
 ## Inputs
 
