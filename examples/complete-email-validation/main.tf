@@ -1,8 +1,3 @@
-variable "domain_name" {
-  description = "Domain name to use as Route53 zone and ACM certificate"
-  default     = "my-domain-name2.com"
-}
-
 resource "aws_route53_zone" "this" {
   name = var.domain_name
 }
