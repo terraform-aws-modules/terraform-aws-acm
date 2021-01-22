@@ -4,6 +4,7 @@ locals {
 
   # Copy domain_validation_options for the distinct domain names
   validation_domains = var.create_certificate ? [for k, v in flatten(aws_acm_certificate.this.*.domain_validation_options) : tomap(v) if contains(local.distinct_domain_names, replace(v.domain_name, "*.", ""))] : []
+
 }
 
 resource "aws_acm_certificate" "this" {
