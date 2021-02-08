@@ -22,6 +22,12 @@ variable "wait_for_validation" {
   default     = true
 }
 
+variable "certificate_transparency_logging_preference" {
+  description = "Specifies whether certificate details should be added to a certificate transparency log"
+  type        = bool
+  default     = true
+}
+
 variable "domain_name" {
   description = "A domain name for which the certificate should be issued"
   type        = string
@@ -50,4 +56,10 @@ variable "tags" {
   description = "A mapping of tags to assign to the resource"
   type        = map(string)
   default     = {}
+}
+
+variable "dns_ttl" {
+  description = "The TTL of DNS recursive resolvers to cache information about this record."
+  type        = number
+  default     = 60
 }

@@ -1,8 +1,8 @@
 locals {
-  // Get distinct list of domains and SANs
+  # Get distinct list of domains and SANs
   distinct_domain_names = distinct(concat([var.domain_name], [for s in var.subject_alternative_names : replace(s, "*.", "")]))
 
-  // Copy domain_validation_options for the distinct domain names
+  # Copy domain_validation_options for the distinct domain names
   validation_domains = var.create_certificate ? [for k, v in aws_acm_certificate.this[0].domain_validation_options : tomap(v) if contains(local.distinct_domain_names, replace(v.domain_name, "*.", ""))] : []
 }
 
@@ -12,6 +12,10 @@ resource "aws_acm_certificate" "this" {
   domain_name               = var.domain_name
   subject_alternative_names = var.subject_alternative_names
   validation_method         = var.validation_method
+
+  options {
+    certificate_transparency_logging_preference = var.certificate_transparency_logging_preference ? "ENABLED" : "DISABLED"
+  }
 
   tags = var.tags
 
@@ -26,7 +30,7 @@ resource "aws_route53_record" "validation" {
   zone_id = var.zone_id
   name    = element(local.validation_domains, count.index)["resource_record_name"]
   type    = element(local.validation_domains, count.index)["resource_record_type"]
-  ttl     = 60
+  ttl     = var.dns_ttl
 
   records = [
     element(local.validation_domains, count.index)["resource_record_value"]
