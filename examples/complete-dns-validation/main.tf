@@ -16,7 +16,7 @@ data "aws_route53_zone" "this" {
 }
 
 resource "aws_route53_zone" "this" {
-  count = ! local.use_existing_route53_zone ? 1 : 0
+  count = !local.use_existing_route53_zone ? 1 : 0
   name  = local.domain_name
 }
 
@@ -28,10 +28,8 @@ module "acm" {
 
   subject_alternative_names = [
     "*.alerts.${local.domain_name}",
-    "*.something.${local.domain_name}",
-    "*.news.${local.domain_name}",
-    "*.info.${local.domain_name}",
     "new.sub.${local.domain_name}",
+    "*.${local.domain_name}",
   ]
 
   wait_for_validation = true

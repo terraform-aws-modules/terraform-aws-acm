@@ -6,7 +6,7 @@ Terraform module which creates ACM certificates and validates them using Route53
 
 Terraform 0.12. Pin module version to `~> v2.0`. Submit pull-requests to `master` branch.
 
-Terraform 0.11. Pin module version to `~> v1.0`. Submit pull-requests to `terraform011` branch.
+Terraform 0.11. Pin module version to `~> v1.0`.
 
 ## Usage with Route53 DNS validation (recommended)
 
@@ -61,7 +61,6 @@ module "acm" {
 ## Notes
 
 * For use in an automated pipeline consider setting the `wait_for_validation = false` to avoid waiting for validation to complete or error after a 45 minute timeout.
-* `domain_name` can not be wildcard, but `subject_alternative_names` can include wildcards.
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Requirements
@@ -76,6 +75,18 @@ module "acm" {
 | Name | Version |
 |------|---------|
 | aws | >= 2.53 |
+
+## Modules
+
+No Modules.
+
+## Resources
+
+| Name |
+|------|
+| [aws_acm_certificate_validation](https://registry.terraform.io/providers/hashicorp/aws/2.53/docs/resources/acm_certificate_validation) |
+| [aws_acm_certificate](https://registry.terraform.io/providers/hashicorp/aws/2.53/docs/resources/acm_certificate) |
+| [aws_route53_record](https://registry.terraform.io/providers/hashicorp/aws/2.53/docs/resources/route53_record) |
 
 ## Inputs
 
@@ -103,7 +114,6 @@ module "acm" {
 | this\_acm\_certificate\_validation\_emails | A list of addresses that received a validation E-Mail. Only set if EMAIL-validation was used. |
 | validation\_domains | List of distinct domain validation options. This is useful if subject alternative names contain wildcards. |
 | validation\_route53\_record\_fqdns | List of FQDNs built using the zone domain and name. |
-
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
 ## Authors

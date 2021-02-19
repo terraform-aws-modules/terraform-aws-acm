@@ -32,6 +32,19 @@ Note that this example may create resources which cost money. Run `terraform des
 |------|---------|
 | aws | >= 2.53 |
 
+## Modules
+
+| Name | Source | Version |
+|------|--------|---------|
+| acm | ../../ |  |
+
+## Resources
+
+| Name |
+|------|
+| [aws_route53_zone](https://registry.terraform.io/providers/hashicorp/aws/2.53/docs/data-sources/route53_zone) |
+| [aws_route53_zone](https://registry.terraform.io/providers/hashicorp/aws/2.53/docs/resources/route53_zone) |
+
 ## Inputs
 
 No input.
@@ -46,5 +59,4 @@ No input.
 | this\_acm\_certificate\_validation\_emails | A list of addresses that received a validation E-Mail. Only set if EMAIL-validation was used. |
 | validation\_domains | List of distinct domain validation options. This is useful if subject alternative names contain wildcards. |
 | validation\_route53\_record\_fqdns | List of FQDNs built using the zone domain and name. |
-
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->

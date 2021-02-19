@@ -45,6 +45,18 @@ Note that this example may create resources which cost money. Run `terraform des
 |------|---------|
 | aws | >= 2.53 |
 
+## Modules
+
+| Name | Source | Version |
+|------|--------|---------|
+| acm | ../../ |  |
+
+## Resources
+
+| Name |
+|------|
+| [aws_route53_zone](https://registry.terraform.io/providers/hashicorp/aws/2.53/docs/resources/route53_zone) |
+
 ## Inputs
 
 | Name | Description | Type | Default | Required |
@@ -58,5 +70,4 @@ Note that this example may create resources which cost money. Run `terraform des
 | this\_acm\_certificate\_arn | The ARN of the certificate |
 | this\_acm\_certificate\_domain\_validation\_options | A list of attributes to feed into other resources to complete certificate validation. Can have more than one element, e.g. if SANs are defined. Only set if DNS-validation was used. |
 | this\_acm\_certificate\_validation\_emails | A list of addresses that received a validation E-Mail. Only set if EMAIL-validation was used. |
-
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
