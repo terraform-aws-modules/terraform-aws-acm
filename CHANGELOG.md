@@ -7,6 +7,12 @@ All notable changes to this project will be documented in this file.
 
 
 
+<a name="v2.13.0"></a>
+## [v2.13.0] - 2021-02-19
+
+- fix: Fixed wildcard in domain names ([#71](https://github.com/terraform-aws-modules/terraform-aws-acm/issues/71))
+
+
 <a name="v2.12.0"></a>
 ## [v2.12.0] - 2020-11-04
 
@@ -128,7 +134,8 @@ All notable changes to this project will be documented in this file.
 - Initial commit with all the code
 
 
-[Unreleased]: https://github.com/terraform-aws-modules/terraform-aws-acm/compare/v2.12.0...HEAD
+[Unreleased]: https://github.com/terraform-aws-modules/terraform-aws-acm/compare/v2.13.0...HEAD
+[v2.13.0]: https://github.com/terraform-aws-modules/terraform-aws-acm/compare/v2.12.0...v2.13.0
 [v2.12.0]: https://github.com/terraform-aws-modules/terraform-aws-acm/compare/v2.11.0...v2.12.0
 [v2.11.0]: https://github.com/terraform-aws-modules/terraform-aws-acm/compare/v2.10.0...v2.11.0
 [v2.10.0]: https://github.com/terraform-aws-modules/terraform-aws-acm/compare/v2.9.0...v2.10.0
