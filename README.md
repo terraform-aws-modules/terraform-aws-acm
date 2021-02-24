@@ -84,9 +84,9 @@ No Modules.
 
 | Name |
 |------|
-| [aws_acm_certificate_validation](https://registry.terraform.io/providers/hashicorp/aws/2.53/docs/resources/acm_certificate_validation) |
-| [aws_acm_certificate](https://registry.terraform.io/providers/hashicorp/aws/2.53/docs/resources/acm_certificate) |
-| [aws_route53_record](https://registry.terraform.io/providers/hashicorp/aws/2.53/docs/resources/route53_record) |
+| [aws_acm_certificate](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/acm_certificate) |
+| [aws_acm_certificate_validation](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/acm_certificate_validation) |
+| [aws_route53_record](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route53_record) |
 
 ## Inputs
 
