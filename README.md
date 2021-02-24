@@ -68,7 +68,7 @@ module "acm" {
 
 | Name | Version |
 |------|---------|
-| terraform | >= 0.12.6 |
+| terraform | >= 0.12.26 |
 | aws | >= 2.53 |
 
 ## Providers
