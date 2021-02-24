@@ -42,8 +42,8 @@ Note that this example may create resources which cost money. Run `terraform des
 
 | Name |
 |------|
-| [aws_route53_zone](https://registry.terraform.io/providers/hashicorp/aws/2.53/docs/data-sources/route53_zone) |
-| [aws_route53_zone](https://registry.terraform.io/providers/hashicorp/aws/2.53/docs/resources/route53_zone) |
+| [aws_route53_zone](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/route53_zone) |
+| [aws_route53_zone](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route53_zone) |
 
 ## Inputs
 
