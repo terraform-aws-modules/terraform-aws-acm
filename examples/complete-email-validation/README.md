@@ -36,38 +36,38 @@ Note that this example may create resources which cost money. Run `terraform des
 
 | Name | Version |
 |------|---------|
-| terraform | >= 0.12.26 |
-| aws | >= 2.53 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.12.26 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 2.53 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| aws | >= 2.53 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | >= 2.53 |
 
 ## Modules
 
 | Name | Source | Version |
 |------|--------|---------|
-| acm | ../../ |  |
+| <a name="module_acm"></a> [acm](#module\_acm) | ../../ |  |
 
 ## Resources
 
-| Name |
-|------|
-| [aws_route53_zone](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route53_zone) |
+| Name | Type |
+|------|------|
+| [aws_route53_zone.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route53_zone) | resource |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| domain\_name | Domain name to use as Route53 zone and ACM certificate | `string` | `"my-domain-name2.com"` | no |
+| <a name="input_domain_name"></a> [domain\_name](#input\_domain\_name) | Domain name to use as Route53 zone and ACM certificate | `string` | `"my-domain-name2.com"` | no |
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
-| this\_acm\_certificate\_arn | The ARN of the certificate |
-| this\_acm\_certificate\_domain\_validation\_options | A list of attributes to feed into other resources to complete certificate validation. Can have more than one element, e.g. if SANs are defined. Only set if DNS-validation was used. |
-| this\_acm\_certificate\_validation\_emails | A list of addresses that received a validation E-Mail. Only set if EMAIL-validation was used. |
+| <a name="output_this_acm_certificate_arn"></a> [this\_acm\_certificate\_arn](#output\_this\_acm\_certificate\_arn) | The ARN of the certificate |
+| <a name="output_this_acm_certificate_domain_validation_options"></a> [this\_acm\_certificate\_domain\_validation\_options](#output\_this\_acm\_certificate\_domain\_validation\_options) | A list of attributes to feed into other resources to complete certificate validation. Can have more than one element, e.g. if SANs are defined. Only set if DNS-validation was used. |
+| <a name="output_this_acm_certificate_validation_emails"></a> [this\_acm\_certificate\_validation\_emails](#output\_this\_acm\_certificate\_validation\_emails) | A list of addresses that received a validation E-Mail. Only set if EMAIL-validation was used. |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
