@@ -29,6 +29,34 @@ module "acm" {
 }
 ```
 
+## [Usage with CloudFront](https://aws.amazon.com/premiumsupport/knowledge-center/install-ssl-cloudfront/)
+
+```hcl
+# CloudFront supports US East (N. Virginia) Region only.
+provider "aws" {
+  alias  = "us-east-1"
+  region = "us-east-1"
+}
+
+module "acm" {
+  source = "terraform-aws-modules/acm/aws"
+
+  providers = {
+    aws = aws.us-east-1
+  }
+
+  domain_name = "your_domain_name"
+  zone_id     = "your_hosted_zone_id"
+
+  wait_for_validation = true
+
+  tags = {
+    Name = "your_domain_name"
+  }
+}
+
+```
+
 ## Examples
 
 * [Complete example with DNS validation (recommended)](https://github.com/terraform-aws-modules/terraform-aws-acm/tree/master/examples/complete-dns-validation)
