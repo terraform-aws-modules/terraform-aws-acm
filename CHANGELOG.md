@@ -7,6 +7,14 @@ All notable changes to this project will be documented in this file.
 
 
 
+<a name="v3.0.0"></a>
+## [v3.0.0] - 2021-04-26
+
+- feat: Shorten outputs (removing this_) ([#83](https://github.com/terraform-aws-modules/terraform-aws-acm/issues/83))
+- chore: update documentation and pin `terraform_docs` version to avoid future changes ([#78](https://github.com/terraform-aws-modules/terraform-aws-acm/issues/78))
+- chore: align ci-cd static checks to use individual minimum Terraform versions ([#76](https://github.com/terraform-aws-modules/terraform-aws-acm/issues/76))
+
+
 <a name="v2.14.0"></a>
 ## [v2.14.0] - 2021-02-24
 
@@ -62,8 +70,18 @@ All notable changes to this project will be documented in this file.
 
 - Updated README
 - feat: Add certificate transparency log option to ACM ([#18](https://github.com/terraform-aws-modules/terraform-aws-acm/issues/18))
+- Merge pull request [#46](https://github.com/terraform-aws-modules/terraform-aws-acm/issues/46) from terraform-aws-modules/terraform-provider-githubfile-1584635020736654000
+- [ci skip] Create ".chglog/CHANGELOG.tpl.md".
+- Merge pull request [#45](https://github.com/terraform-aws-modules/terraform-aws-acm/issues/45) from terraform-aws-modules/terraform-provider-githubfile-1584531592337142000
+- [ci skip] Update ".pre-commit-config.yaml".
+- Merge pull request [#44](https://github.com/terraform-aws-modules/terraform-aws-acm/issues/44) from terraform-aws-modules/terraform-provider-githubfile-1584531435556216000
 - Update ".pre-commit-config.yaml".
+- Merge pull request [#43](https://github.com/terraform-aws-modules/terraform-aws-acm/issues/43) from terraform-aws-modules/terraform-provider-githubfile-1584531247134713000
 - Create "LICENSE".
+- Merge pull request [#40](https://github.com/terraform-aws-modules/terraform-aws-acm/issues/40) from terraform-aws-modules/terraform-provider-githubfile-1584531188174100000
+- Merge pull request [#42](https://github.com/terraform-aws-modules/terraform-aws-acm/issues/42) from terraform-aws-modules/terraform-provider-githubfile-1584531188174140000
+- Merge pull request [#41](https://github.com/terraform-aws-modules/terraform-aws-acm/issues/41) from terraform-aws-modules/terraform-provider-githubfile-1584531188174576000
+- Merge pull request [#39](https://github.com/terraform-aws-modules/terraform-aws-acm/issues/39) from terraform-aws-modules/terraform-provider-githubfile-1584531188174153000
 - Create ".gitignore".
 - Create ".pre-commit-config.yaml".
 - Create "Makefile".
@@ -142,7 +160,8 @@ All notable changes to this project will be documented in this file.
 - Initial commit with all the code
 
 
-[Unreleased]: https://github.com/terraform-aws-modules/terraform-aws-acm/compare/v2.14.0...HEAD
+[Unreleased]: https://github.com/terraform-aws-modules/terraform-aws-acm/compare/v3.0.0...HEAD
+[v3.0.0]: https://github.com/terraform-aws-modules/terraform-aws-acm/compare/v2.14.0...v3.0.0
 [v2.14.0]: https://github.com/terraform-aws-modules/terraform-aws-acm/compare/v2.13.0...v2.14.0
 [v2.13.0]: https://github.com/terraform-aws-modules/terraform-aws-acm/compare/v2.12.0...v2.13.0
 [v2.12.0]: https://github.com/terraform-aws-modules/terraform-aws-acm/compare/v2.11.0...v2.12.0
