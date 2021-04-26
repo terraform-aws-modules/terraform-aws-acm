@@ -2,12 +2,6 @@
 
 Terraform module which creates ACM certificates and validates them using Route53 DNS (recommended) or e-mail.
 
-## Terraform versions
-
-Terraform 0.12. Pin module version to `~> v2.0`. Submit pull-requests to `master` branch.
-
-Terraform 0.11. Pin module version to `~> v1.0`.
-
 ## Usage with Route53 DNS validation (recommended)
 
 ```hcl
