@@ -7,7 +7,7 @@ Terraform module which creates ACM certificates and validates them using Route53
 ```hcl
 module "acm" {
   source  = "terraform-aws-modules/acm/aws"
-  version = "~> v2.0"
+  version = "~> v3.0"
 
   domain_name  = "my-domain.com"
   zone_id      = "Z2ES7B9AZ6SHAE"
@@ -17,6 +17,8 @@ module "acm" {
     "app.sub.my-domain.com",
   ]
 
+  wait_for_validation = true
+
   tags = {
     Name = "my-domain.com"
   }
@@ -25,8 +27,8 @@ module "acm" {
 
 ## Examples
 
-* [Complete example with DNS validation (recommended)](https://github.com/terraform-aws-modules/terraform-aws-acm/tree/master/examples/complete-dns-validation)
-* [Complete example with EMAIL validation](https://github.com/terraform-aws-modules/terraform-aws-acm/tree/master/examples/complete-email-validation)
+- [Complete example with DNS validation (recommended)](https://github.com/terraform-aws-modules/terraform-aws-acm/tree/master/examples/complete-dns-validation)
+- [Complete example with EMAIL validation](https://github.com/terraform-aws-modules/terraform-aws-acm/tree/master/examples/complete-email-validation)
 
 ## Conditional creation and validation
 
@@ -54,8 +56,8 @@ module "acm" {
 
 ## Notes
 
-* For use in an automated pipeline consider setting the `wait_for_validation = false` to avoid waiting for validation to complete or error after a 45 minute timeout.
-* If you're upgrading to [v2.13.0](https://github.com/terraform-aws-modules/terraform-aws-acm/releases/v2.13.0) or above, you might be subject to [off-by-one validation record issue](https://github.com/terraform-aws-modules/terraform-aws-acm/pull/47#issuecomment-754778599). You can solve this without compromising existing validation records by issuing `terraform state rm <your_module_name>.validation[1]` where `[1]` can be a different index # depending on the number of validation records your module creates (you can check this with `terraform state list module.<your_module_name>.validation`).
+- For use in an automated pipeline consider setting the `wait_for_validation = false` to avoid waiting for validation to complete or error after a 45 minute timeout.
+- If you're upgrading to [v2.13.0](https://github.com/terraform-aws-modules/terraform-aws-acm/releases/v2.13.0) or above, you might be subject to [off-by-one validation record issue](https://github.com/terraform-aws-modules/terraform-aws-acm/pull/47#issuecomment-754778599). You can solve this without compromising existing validation records by issuing `terraform state rm <your_module_name>.validation[1]` where `[1]` can be a different index # depending on the number of validation records your module creates (you can check this with `terraform state list module.<your_module_name>.validation`).
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Requirements
@@ -113,8 +115,8 @@ No modules.
 
 ## Authors
 
-Module managed by [Anton Babenko](https://github.com/antonbabenko).
+Module is maintained by [Anton Babenko](https://github.com/antonbabenko) with help from [these awesome contributors](https://github.com/terraform-aws-modules/terraform-aws-acm/graphs/contributors).
 
 ## License
 
-Apache 2 Licensed. See LICENSE for full details.
+Apache 2 Licensed. See [LICENSE](https://github.com/terraform-aws-modules/terraform-aws-acm/tree/master/LICENSE) for full details.
