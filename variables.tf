@@ -46,12 +46,6 @@ variable "validation_method" {
   default     = "DNS"
 }
 
-variable "zone_id" {
-  description = "The ID of the hosted zone to contain this record."
-  type        = string
-  default     = ""
-}
-
 variable "tags" {
   description = "A mapping of tags to assign to the resource"
   type        = map(string)

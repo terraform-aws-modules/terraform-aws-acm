@@ -10,7 +10,6 @@ module "acm" {
   version = "~> v3.0"
 
   domain_name  = "my-domain.com"
-  zone_id      = "Z2ES7B9AZ6SHAE"
 
   subject_alternative_names = [
     "*.my-domain.com",
@@ -99,7 +98,6 @@ No modules.
 | <a name="input_validation_allow_overwrite_records"></a> [validation\_allow\_overwrite\_records](#input\_validation\_allow\_overwrite\_records) | Whether to allow overwrite of Route53 records | `bool` | `true` | no |
 | <a name="input_validation_method"></a> [validation\_method](#input\_validation\_method) | Which method to use for validation. DNS or EMAIL are valid, NONE can be used for certificates that were imported into ACM and then into Terraform. | `string` | `"DNS"` | no |
 | <a name="input_wait_for_validation"></a> [wait\_for\_validation](#input\_wait\_for\_validation) | Whether to wait for the validation to complete | `bool` | `true` | no |
-| <a name="input_zone_id"></a> [zone\_id](#input\_zone\_id) | The ID of the hosted zone to contain this record. | `string` | `""` | no |
 
 ## Outputs
 
