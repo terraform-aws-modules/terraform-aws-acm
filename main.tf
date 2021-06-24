@@ -5,11 +5,15 @@ locals {
   )
 
   # Copy domain_validation_options for the distinct domain names
-  validation_domains = var.create_certificate ? distinct(
-    [for v in aws_acm_certificate.this[0].domain_validation_options : merge(
+  validation_domains = var.create_certificate ? [for k, v in aws_acm_certificate.this[0].domain_validation_options : tomap(v) if contains(local.distinct_domain_names, replace(v.domain_name, "*.", ""))] : []
+
+  # Get the list of distinct domain_validation_options, with wildcard
+  # domain names replaced by the domain name
+  distinct_validation_domains = var.create_certificate ? distinct(
+    [for v in local.validation_domains : merge(
         tomap(v),
         { domain_name = replace(v.domain_name, "*.", "") }
-      ) if contains(local.distinct_domain_names, replace(v.domain_name, "*.", ""))]
+      )
   ) : []
 }
 
@@ -35,12 +39,12 @@ resource "aws_route53_record" "validation" {
   count = var.create_certificate && var.validation_method == "DNS" && var.validate_certificate ? length(local.distinct_domain_names) : 0
 
   zone_id = var.zone_id
-  name    = element(local.validation_domains, count.index)["resource_record_name"]
-  type    = element(local.validation_domains, count.index)["resource_record_type"]
+  name    = element(local.distinct_validation_domains, count.index)["resource_record_name"]
+  type    = element(local.distinct_validation_domains, count.index)["resource_record_type"]
   ttl     = var.dns_ttl
 
   records = [
-    element(local.validation_domains, count.index)["resource_record_value"]
+    element(local.distinct_validation_domains, count.index)["resource_record_value"]
   ]
 
   allow_overwrite = var.validation_allow_overwrite_records
