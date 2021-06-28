@@ -7,6 +7,12 @@ All notable changes to this project will be documented in this file.
 
 
 
+<a name="v3.2.0"></a>
+## [v3.2.0] - 2021-06-28
+
+- docs: Add note in README about CloudFront with ACM ([#79](https://github.com/terraform-aws-modules/terraform-aws-acm/issues/79))
+
+
 <a name="v3.1.0"></a>
 ## [v3.1.0] - 2021-06-28
 
@@ -157,7 +163,8 @@ All notable changes to this project will be documented in this file.
 - Initial commit with all the code
 
 
-[Unreleased]: https://github.com/terraform-aws-modules/terraform-aws-acm/compare/v3.1.0...HEAD
+[Unreleased]: https://github.com/terraform-aws-modules/terraform-aws-acm/compare/v3.2.0...HEAD
+[v3.2.0]: https://github.com/terraform-aws-modules/terraform-aws-acm/compare/v3.1.0...v3.2.0
 [v3.1.0]: https://github.com/terraform-aws-modules/terraform-aws-acm/compare/v3.0.0...v3.1.0
 [v3.0.0]: https://github.com/terraform-aws-modules/terraform-aws-acm/compare/v2.14.0...v3.0.0
 [v2.14.0]: https://github.com/terraform-aws-modules/terraform-aws-acm/compare/v2.13.0...v2.14.0
