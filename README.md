@@ -45,13 +45,13 @@ module "acm" {
     aws = aws.us-east-1
   }
 
-  domain_name = "your_domain_name"
-  zone_id     = "your_hosted_zone_id"
+  domain_name = "my-domain.com"
+  zone_id     = "Z266PL4W4W6MSG"
 
   wait_for_validation = true
 
   tags = {
-    Name = "your_domain_name"
+    Name = "my-domain.com"
   }
 }
 
