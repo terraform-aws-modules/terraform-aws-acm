@@ -2,18 +2,12 @@
 
 Terraform module which creates ACM certificates and validates them using Route53 DNS (recommended) or e-mail.
 
-## Terraform versions
-
-Terraform 0.12. Pin module version to `~> v2.0`. Submit pull-requests to `master` branch.
-
-Terraform 0.11. Pin module version to `~> v1.0`.
-
 ## Usage with Route53 DNS validation (recommended)
 
 ```hcl
 module "acm" {
   source  = "terraform-aws-modules/acm/aws"
-  version = "~> v2.0"
+  version = "~> 3.0"
 
   domain_name  = "my-domain.com"
   zone_id      = "Z2ES7B9AZ6SHAE"
@@ -22,6 +16,8 @@ module "acm" {
     "*.my-domain.com",
     "app.sub.my-domain.com",
   ]
+
+  wait_for_validation = true
 
   tags = {
     Name = "my-domain.com"
@@ -59,8 +55,8 @@ module "acm" {
 
 ## Examples
 
-* [Complete example with DNS validation (recommended)](https://github.com/terraform-aws-modules/terraform-aws-acm/tree/master/examples/complete-dns-validation)
-* [Complete example with EMAIL validation](https://github.com/terraform-aws-modules/terraform-aws-acm/tree/master/examples/complete-email-validation)
+- [Complete example with DNS validation (recommended)](https://github.com/terraform-aws-modules/terraform-aws-acm/tree/master/examples/complete-dns-validation)
+- [Complete example with EMAIL validation](https://github.com/terraform-aws-modules/terraform-aws-acm/tree/master/examples/complete-email-validation)
 
 ## Conditional creation and validation
 
@@ -88,8 +84,8 @@ module "acm" {
 
 ## Notes
 
-* For use in an automated pipeline consider setting the `wait_for_validation = false` to avoid waiting for validation to complete or error after a 45 minute timeout.
-* If you're upgrading to [v2.13.0](https://github.com/terraform-aws-modules/terraform-aws-acm/releases/v2.13.0) or above, you might be subject to [off-by-one validation record issue](https://github.com/terraform-aws-modules/terraform-aws-acm/pull/47#issuecomment-754778599). You can solve this without compromising existing validation records by issuing `terraform state rm <your_module_name>.validation[1]` where `[1]` can be a different index # depending on the number of validation records your module creates (you can check this with `terraform state list module.<your_module_name>.validation`).
+- For use in an automated pipeline consider setting the `wait_for_validation = false` to avoid waiting for validation to complete or error after a 45 minute timeout.
+- If you're upgrading to [v2.13.0](https://github.com/terraform-aws-modules/terraform-aws-acm/releases/v2.13.0) or above, you might be subject to [off-by-one validation record issue](https://github.com/terraform-aws-modules/terraform-aws-acm/pull/47#issuecomment-754778599). You can solve this without compromising existing validation records by issuing `terraform state rm <your_module_name>.validation[1]` where `[1]` can be a different index # depending on the number of validation records your module creates (you can check this with `terraform state list module.<your_module_name>.validation`).
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Requirements
@@ -137,18 +133,18 @@ No modules.
 
 | Name | Description |
 |------|-------------|
+| <a name="output_acm_certificate_arn"></a> [acm\_certificate\_arn](#output\_acm\_certificate\_arn) | The ARN of the certificate |
+| <a name="output_acm_certificate_domain_validation_options"></a> [acm\_certificate\_domain\_validation\_options](#output\_acm\_certificate\_domain\_validation\_options) | A list of attributes to feed into other resources to complete certificate validation. Can have more than one element, e.g. if SANs are defined. Only set if DNS-validation was used. |
+| <a name="output_acm_certificate_validation_emails"></a> [acm\_certificate\_validation\_emails](#output\_acm\_certificate\_validation\_emails) | A list of addresses that received a validation E-Mail. Only set if EMAIL-validation was used. |
 | <a name="output_distinct_domain_names"></a> [distinct\_domain\_names](#output\_distinct\_domain\_names) | List of distinct domains names used for the validation. |
-| <a name="output_this_acm_certificate_arn"></a> [this\_acm\_certificate\_arn](#output\_this\_acm\_certificate\_arn) | The ARN of the certificate |
-| <a name="output_this_acm_certificate_domain_validation_options"></a> [this\_acm\_certificate\_domain\_validation\_options](#output\_this\_acm\_certificate\_domain\_validation\_options) | A list of attributes to feed into other resources to complete certificate validation. Can have more than one element, e.g. if SANs are defined. Only set if DNS-validation was used. |
-| <a name="output_this_acm_certificate_validation_emails"></a> [this\_acm\_certificate\_validation\_emails](#output\_this\_acm\_certificate\_validation\_emails) | A list of addresses that received a validation E-Mail. Only set if EMAIL-validation was used. |
 | <a name="output_validation_domains"></a> [validation\_domains](#output\_validation\_domains) | List of distinct domain validation options. This is useful if subject alternative names contain wildcards. |
 | <a name="output_validation_route53_record_fqdns"></a> [validation\_route53\_record\_fqdns](#output\_validation\_route53\_record\_fqdns) | List of FQDNs built using the zone domain and name. |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
 ## Authors
 
-Module managed by [Anton Babenko](https://github.com/antonbabenko).
+Module is maintained by [Anton Babenko](https://github.com/antonbabenko) with help from [these awesome contributors](https://github.com/terraform-aws-modules/terraform-aws-acm/graphs/contributors).
 
 ## License
 
-Apache 2 Licensed. See LICENSE for full details.
+Apache 2 Licensed. See [LICENSE](https://github.com/terraform-aws-modules/terraform-aws-acm/tree/master/LICENSE) for full details.

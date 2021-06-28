@@ -7,6 +7,21 @@ All notable changes to this project will be documented in this file.
 
 
 
+<a name="v3.1.0"></a>
+## [v3.1.0] - 2021-06-28
+
+- fix: create missing validation records in cases (eg, wildcard SAN) ([#89](https://github.com/terraform-aws-modules/terraform-aws-acm/issues/89))
+- chore: update CI/CD to use latest `terraform-docs` and discoverable Apache2.0 license ([#85](https://github.com/terraform-aws-modules/terraform-aws-acm/issues/85))
+
+
+<a name="v3.0.0"></a>
+## [v3.0.0] - 2021-04-26
+
+- feat: Shorten outputs (removing this_) ([#83](https://github.com/terraform-aws-modules/terraform-aws-acm/issues/83))
+- chore: update documentation and pin `terraform_docs` version to avoid future changes ([#78](https://github.com/terraform-aws-modules/terraform-aws-acm/issues/78))
+- chore: align ci-cd static checks to use individual minimum Terraform versions ([#76](https://github.com/terraform-aws-modules/terraform-aws-acm/issues/76))
+
+
 <a name="v2.14.0"></a>
 ## [v2.14.0] - 2021-02-24
 
@@ -142,7 +157,9 @@ All notable changes to this project will be documented in this file.
 - Initial commit with all the code
 
 
-[Unreleased]: https://github.com/terraform-aws-modules/terraform-aws-acm/compare/v2.14.0...HEAD
+[Unreleased]: https://github.com/terraform-aws-modules/terraform-aws-acm/compare/v3.1.0...HEAD
+[v3.1.0]: https://github.com/terraform-aws-modules/terraform-aws-acm/compare/v3.0.0...v3.1.0
+[v3.0.0]: https://github.com/terraform-aws-modules/terraform-aws-acm/compare/v2.14.0...v3.0.0
 [v2.14.0]: https://github.com/terraform-aws-modules/terraform-aws-acm/compare/v2.13.0...v2.14.0
 [v2.13.0]: https://github.com/terraform-aws-modules/terraform-aws-acm/compare/v2.12.0...v2.13.0
 [v2.12.0]: https://github.com/terraform-aws-modules/terraform-aws-acm/compare/v2.11.0...v2.12.0
