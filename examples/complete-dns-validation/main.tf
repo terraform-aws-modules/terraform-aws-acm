@@ -30,6 +30,7 @@ module "acm" {
     "*.alerts.${local.domain_name}",
     "new.sub.${local.domain_name}",
     "*.${local.domain_name}",
+    "alerts.${local.domain_name}",
   ]
 
   wait_for_validation = true
