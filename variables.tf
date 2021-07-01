@@ -53,11 +53,8 @@ variable "zone_id" {
 }
 
 variable "domain_zones" {
-  description = "A mappping of distinct domain names to Route 53 zone ids."
+  description = "A mapping of distinct domain names to Route 53 zone details."
   type        = map(any)
-  # domain_name => object({
-  #  zone_id = string
-  # }))
   default     = {}
 }
 

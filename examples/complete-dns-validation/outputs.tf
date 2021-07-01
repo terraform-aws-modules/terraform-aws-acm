@@ -19,11 +19,11 @@ output "validation_route53_record_fqdns" {
 }
 
 output "distinct_domain_names" {
-  description = "List of distinct domains names used for the validation."
+  description = "List of distinct domains names used for validation. It does not include the certificate distinct domain names that were not mapped to a hosted zone."
   value       = module.acm.distinct_domain_names
 }
 
 output "validation_domains" {
-  description = "List of distinct domain validation options. This is useful if subject alternative names contain wildcards."
+  description = "List of distinct domain validation options. This is useful if subject alternative names contain wildcards. It does not include the domain validation options for the certificate distinct domain names that were not mapped to a hosted zone."
   value       = module.acm.validation_domains
 }
