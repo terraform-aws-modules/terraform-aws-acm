@@ -5,7 +5,7 @@ variable "create_certificate" {
 }
 
 variable "validate_certificate" {
-  description = "Whether to validate certificate by creating Route53 record"
+  description = "Whether to validate certificate by creating Route53 record(s)"
   type        = bool
   default     = true
 }
@@ -47,9 +47,15 @@ variable "validation_method" {
 }
 
 variable "zone_id" {
-  description = "The ID of the hosted zone to contain this record."
+  description = "The ID of the hosted zone to contain the validation record(s)."
   type        = string
   default     = ""
+}
+
+variable "domain_zones" {
+  description = "A mapping of distinct domain names to Route 53 zone details."
+  type        = map(any)
+  default     = {}
 }
 
 variable "tags" {
@@ -59,7 +65,7 @@ variable "tags" {
 }
 
 variable "dns_ttl" {
-  description = "The TTL of DNS recursive resolvers to cache information about this record."
+  description = "The TTL of DNS recursive resolvers to cache information about the validation record(s)."
   type        = number
   default     = 60
 }
