@@ -49,7 +49,7 @@ Note that this example may create resources which cost money. Run `terraform des
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_acm"></a> [acm](#module\_acm) | ../../ |  |
+| <a name="module_acm"></a> [acm](#module\_acm) | ../../ | n/a |
 
 ## Resources
 
