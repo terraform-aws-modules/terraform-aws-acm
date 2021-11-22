@@ -1,3 +1,14 @@
+# Changelog
+
+All notable changes to this project will be documented in this file.
+
+## [3.2.1](https://github.com/terraform-aws-modules/terraform-aws-acm/compare/v3.2.0...v3.2.1) (2021-11-22)
+
+
+### Bug Fixes
+
+* update CI/CD process to enable auto-release workflow ([#96](https://github.com/terraform-aws-modules/terraform-aws-acm/issues/96)) ([a9010ce](https://github.com/terraform-aws-modules/terraform-aws-acm/commit/a9010ce14177336f2704231bb18c3889f9704a84))
+
 <a name="v3.2.0"></a>
 ## [v3.2.0] - 2021-06-28
 
