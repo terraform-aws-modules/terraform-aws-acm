@@ -56,6 +56,7 @@ module "acm" {
 ## Examples
 
 - [Complete example with DNS validation (recommended)](https://github.com/terraform-aws-modules/terraform-aws-acm/tree/master/examples/complete-dns-validation)
+- [Complete example with DNS validation via external DNS provider (CloudFlare)](https://github.com/terraform-aws-modules/terraform-aws-acm/tree/master/examples/complete-dns-validation-with-cloudflare)
 - [Complete example with EMAIL validation](https://github.com/terraform-aws-modules/terraform-aws-acm/tree/master/examples/complete-email-validation)
 
 ## Conditional creation and validation
