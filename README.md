@@ -53,6 +53,37 @@ module "acm" {
 
 ```
 
+## Usage with Route53 DNS validation & different zones
+
+```hcl
+module "acm" {
+  source  = "terraform-aws-modules/acm/aws"
+  version = "~> 3.3"
+
+  domain_name  = "my-domain.com"
+  zone_id      = "Z2ES7B9AZ6SHAE"
+
+  subject_alternative_names = [
+    "*.my-domain.com",
+    "app.sub.my-domain.com",
+    {
+      name = "my-other-domain.com"
+      zone_id = "Z06730ESICABNX"
+    },
+    {
+      name = "*.my-other-domain.com"
+      zone_id = "Z06730ESICABNX"
+    }
+  ]
+
+  wait_for_validation = true
+
+  tags = {
+    Name = "my-domain.com"
+  }
+}
+```
+
 ## Examples
 
 - [Complete example with DNS validation (recommended)](https://github.com/terraform-aws-modules/terraform-aws-acm/tree/master/examples/complete-dns-validation)
