@@ -42,4 +42,3 @@ resource "cloudflare_record" "validation" {
 data "cloudflare_zone" "this" {
   name = local.domain_name
 }
-
