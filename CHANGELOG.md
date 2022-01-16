@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.3.0](https://github.com/terraform-aws-modules/terraform-aws-acm/compare/v3.2.1...v3.3.0) (2022-01-14)
+
+
+### Features
+
+* Allow validating the certificate with CloudFlare ([#101](https://github.com/terraform-aws-modules/terraform-aws-acm/issues/101)) ([a9a3c23](https://github.com/terraform-aws-modules/terraform-aws-acm/commit/a9a3c2394df74de5235f6bbba260f186194c27f8))
+
 ## [3.2.1](https://github.com/terraform-aws-modules/terraform-aws-acm/compare/v3.2.0...v3.2.1) (2021-11-22)
 
 

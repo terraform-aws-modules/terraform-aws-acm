@@ -44,10 +44,27 @@ variable "validation_method" {
   description = "Which method to use for validation. DNS or EMAIL are valid, NONE can be used for certificates that were imported into ACM and then into Terraform."
   type        = string
   default     = "DNS"
+
+  validation {
+    condition     = contains(["DNS", "EMAIL", "NONE"], var.validation_method)
+    error_message = "Valid values are DNS, EMAIL or NONE."
+  }
+}
+
+variable "create_route53_records" {
+  description = "When validation is set to DNS, define whether to create the DNS records internally via Route53 or externally using any DNS provider"
+  type        = bool
+  default     = true
+}
+
+variable "validation_record_fqdns" {
+  description = "When validation is set to DNS and the DNS validation records are set externally, provide the fqdns for the validation"
+  type        = list(string)
+  default     = []
 }
 
 variable "zone_id" {
-  description = "The ID of the hosted zone to contain this record."
+  description = "The ID of the hosted zone to contain this record. Required when validating via Route53"
   type        = string
   default     = ""
 }

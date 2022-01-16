@@ -1,8 +1,8 @@
-# Complete ACM example with Route53 DNS validation
+# Complete ACM example with external CloudFlare DNS validation
 
-Configuration in this directory creates new Route53 zone and ACM certificate (valid for the domain name and wildcard).
+Configuration in this directory creates an ACM certificate (valid for the domain name and wildcard) while the DNS validation is done via an external DNS provider.
 
-Also, ACM certificate is being validate using DNS method.
+For this example CloudFlare DNS is used but any DNS provider could be used instead.
 
 This is a complete example which fits most of scenarios.
 
@@ -25,12 +25,13 @@ Note that this example may create resources which cost money. Run `terraform des
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.13.1 |
 | <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 2.53 |
+| <a name="requirement_cloudflare"></a> [cloudflare](#requirement\_cloudflare) | >= 3.4.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | >= 2.53 |
+| <a name="provider_cloudflare"></a> [cloudflare](#provider\_cloudflare) | >= 3.4.0 |
 
 ## Modules
 
@@ -42,8 +43,8 @@ Note that this example may create resources which cost money. Run `terraform des
 
 | Name | Type |
 |------|------|
-| [aws_route53_zone.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route53_zone) | resource |
-| [aws_route53_zone.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/route53_zone) | data source |
+| [cloudflare_record.validation](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/record) | resource |
+| [cloudflare_zone.this](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/data-sources/zone) | data source |
 
 ## Inputs
 
