@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+### [3.4.1](https://github.com/terraform-aws-modules/terraform-aws-acm/compare/v3.4.0...v3.4.1) (2022-04-15)
+
+
+### Bug Fixes
+
+* Fixed email validation method for ACM certificate ([#104](https://github.com/terraform-aws-modules/terraform-aws-acm/issues/104)) ([ced04a3](https://github.com/terraform-aws-modules/terraform-aws-acm/commit/ced04a3c9e0bed575a9de7eb99fa2afe0e3ea6d3))
+
 ## [3.4.0](https://github.com/terraform-aws-modules/terraform-aws-acm/compare/v3.3.0...v3.4.0) (2022-03-12)
 
 
