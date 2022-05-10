@@ -8,6 +8,11 @@ locals {
 module "acm" {
   source = "../../"
 
+  providers = {
+    aws.acm = aws,
+    aws.dns = aws
+  }
+
   domain_name = local.domain_name
   zone_id     = data.cloudflare_zone.this.id
 
