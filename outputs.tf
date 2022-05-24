@@ -8,6 +8,11 @@ output "acm_certificate_domain_validation_options" {
   value       = flatten(aws_acm_certificate.this.*.domain_validation_options)
 }
 
+output "acm_certificate_status" {
+  description = "Status of the certificate."
+  value       = element(aws_acm_certificate.this.*.status, 0)
+}
+
 output "acm_certificate_validation_emails" {
   description = "A list of addresses that received a validation E-Mail. Only set if EMAIL-validation was used."
   value       = flatten(aws_acm_certificate.this.*.validation_emails)
