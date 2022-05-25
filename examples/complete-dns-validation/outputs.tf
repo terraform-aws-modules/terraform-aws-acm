@@ -10,7 +10,7 @@ output "acm_certificate_domain_validation_options" {
 
 output "acm_certificate_status" {
   description = "Status of the certificate."
-  value       = element(aws_acm_certificate.this.*.status, 0)
+  value       = module.acm.acm_certificate_status
 }
 
 output "acm_certificate_validation_emails" {
