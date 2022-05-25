@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.5.0](https://github.com/terraform-aws-modules/terraform-aws-acm/compare/v3.4.1...v3.5.0) (2022-05-25)
+
+
+### Features
+
+* Added new output for certificate status ([#110](https://github.com/terraform-aws-modules/terraform-aws-acm/issues/110)) ([b63dfd7](https://github.com/terraform-aws-modules/terraform-aws-acm/commit/b63dfd74c91c2eb796072d4d5c8fd76b39bb2887))
+
 ### [3.4.1](https://github.com/terraform-aws-modules/terraform-aws-acm/compare/v3.4.0...v3.4.1) (2022-04-15)
 
 
