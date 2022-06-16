@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.0.0](https://github.com/terraform-aws-modules/terraform-aws-acm/compare/v3.5.0...v4.0.0) (2022-06-15)
+
+
+### ⚠ BREAKING CHANGES
+
+* Added validation_option configuration and upgraded AWS provider to v4 (#106)
+
+### Features
+
+* Added validation_option configuration and upgraded AWS provider to v4 ([#106](https://github.com/terraform-aws-modules/terraform-aws-acm/issues/106)) ([0825e18](https://github.com/terraform-aws-modules/terraform-aws-acm/commit/0825e1861fba92b068e02f97c3c26c2bcc0db5d9))
+
 ## [3.5.0](https://github.com/terraform-aws-modules/terraform-aws-acm/compare/v3.4.1...v3.5.0) (2022-05-25)
 
 

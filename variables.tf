@@ -51,6 +51,12 @@ variable "validation_method" {
   }
 }
 
+variable "validation_option" {
+  description = "The domain name that you want ACM to use to send you validation emails. This domain name is the suffix of the email addresses that you want ACM to use."
+  type        = map(string)
+  default     = {}
+}
+
 variable "create_route53_records" {
   description = "When validation is set to DNS, define whether to create the DNS records internally via Route53 or externally using any DNS provider"
   type        = bool
