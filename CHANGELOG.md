@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+### [4.0.1](https://github.com/terraform-aws-modules/terraform-aws-acm/compare/v4.0.0...v4.0.1) (2022-06-17)
+
+
+### Bug Fixes
+
+* Type of var.validation_option ([#112](https://github.com/terraform-aws-modules/terraform-aws-acm/issues/112)) ([69c1f88](https://github.com/terraform-aws-modules/terraform-aws-acm/commit/69c1f88acc6b1424062f50f13c06fe01bc4ad4fd))
+
 ## [4.0.0](https://github.com/terraform-aws-modules/terraform-aws-acm/compare/v3.5.0...v4.0.0) (2022-06-15)
 
 
