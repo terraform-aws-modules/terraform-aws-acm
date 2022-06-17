@@ -53,7 +53,7 @@ variable "validation_method" {
 
 variable "validation_option" {
   description = "The domain name that you want ACM to use to send you validation emails. This domain name is the suffix of the email addresses that you want ACM to use."
-  type        = map(string)
+  type        = any
   default     = {}
 }
 
