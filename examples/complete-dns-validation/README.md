@@ -1,6 +1,6 @@
 # Complete ACM example with Route53 DNS validation
 
-Configuration in this directory creates new Route53 zone and ACM certificate (valid for the domain name and wildcard).
+Configuration in this directory creates new Route53 zone and ACM certificate (valid for the domain name and wildcard) with one (default) or two instances of AWS providers (one to manage ACM resources, another to manage Route53 records).
 
 Also, ACM certificate is being validate using DNS method.
 
@@ -37,6 +37,8 @@ Note that this example may create resources which cost money. Run `terraform des
 | Name | Source | Version |
 |------|--------|---------|
 | <a name="module_acm"></a> [acm](#module\_acm) | ../../ | n/a |
+| <a name="module_acm_only"></a> [acm\_only](#module\_acm\_only) | ../../ | n/a |
+| <a name="module_route53_records_only"></a> [route53\_records\_only](#module\_route53\_records\_only) | ../../ | n/a |
 
 ## Resources
 
