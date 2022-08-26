@@ -2,6 +2,31 @@
 
 All notable changes to this project will be documented in this file.
 
+### [4.0.1](https://github.com/terraform-aws-modules/terraform-aws-acm/compare/v4.0.0...v4.0.1) (2022-06-17)
+
+
+### Bug Fixes
+
+* Type of var.validation_option ([#112](https://github.com/terraform-aws-modules/terraform-aws-acm/issues/112)) ([69c1f88](https://github.com/terraform-aws-modules/terraform-aws-acm/commit/69c1f88acc6b1424062f50f13c06fe01bc4ad4fd))
+
+## [4.0.0](https://github.com/terraform-aws-modules/terraform-aws-acm/compare/v3.5.0...v4.0.0) (2022-06-15)
+
+
+### ⚠ BREAKING CHANGES
+
+* Added validation_option configuration and upgraded AWS provider to v4 (#106)
+
+### Features
+
+* Added validation_option configuration and upgraded AWS provider to v4 ([#106](https://github.com/terraform-aws-modules/terraform-aws-acm/issues/106)) ([0825e18](https://github.com/terraform-aws-modules/terraform-aws-acm/commit/0825e1861fba92b068e02f97c3c26c2bcc0db5d9))
+
+## [3.5.0](https://github.com/terraform-aws-modules/terraform-aws-acm/compare/v3.4.1...v3.5.0) (2022-05-25)
+
+
+### Features
+
+* Added new output for certificate status ([#110](https://github.com/terraform-aws-modules/terraform-aws-acm/issues/110)) ([b63dfd7](https://github.com/terraform-aws-modules/terraform-aws-acm/commit/b63dfd74c91c2eb796072d4d5c8fd76b39bb2887))
+
 ### [3.4.1](https://github.com/terraform-aws-modules/terraform-aws-acm/compare/v3.4.0...v3.4.1) (2022-04-15)
 
 

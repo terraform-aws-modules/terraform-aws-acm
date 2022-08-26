@@ -4,6 +4,12 @@ variable "create_certificate" {
   default     = true
 }
 
+variable "create_route53_records_only" {
+  description = "Whether to create only Route53 records (e.g. using separate AWS provider)"
+  type        = bool
+  default     = false
+}
+
 variable "validate_certificate" {
   description = "Whether to validate certificate by creating Route53 record"
   type        = bool
@@ -51,6 +57,12 @@ variable "validation_method" {
   }
 }
 
+variable "validation_option" {
+  description = "The domain name that you want ACM to use to send you validation emails. This domain name is the suffix of the email addresses that you want ACM to use."
+  type        = any
+  default     = {}
+}
+
 variable "create_route53_records" {
   description = "When validation is set to DNS, define whether to create the DNS records internally via Route53 or externally using any DNS provider"
   type        = bool
@@ -79,6 +91,18 @@ variable "dns_ttl" {
   description = "The TTL of DNS recursive resolvers to cache information about this record."
   type        = number
   default     = 60
+}
+
+variable "acm_certificate_domain_validation_options" {
+  description = "A list of domain_validation_options created by the ACM certificate to create required Route53 records from it (used when create_route53_records_only is set to true)"
+  type        = any
+  default     = {}
+}
+
+variable "distinct_domain_names" {
+  description = "List of distinct domains and SANs (used when create_route53_records_only is set to true)"
+  type        = list(string)
+  default     = []
 }
 
 variable "putin_khuylo" {
