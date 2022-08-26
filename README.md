@@ -9,7 +9,7 @@ Terraform module which creates ACM certificates and validates them using Route53
 ```hcl
 module "acm" {
   source  = "terraform-aws-modules/acm/aws"
-  version = "~> 3.0"
+  version = "~> 4.0"
 
   domain_name  = "my-domain.com"
   zone_id      = "Z2ES7B9AZ6SHAE"
@@ -32,7 +32,7 @@ module "acm" {
 ```hcl
 module "acm" {
   source  = "terraform-aws-modules/acm/aws"
-  version = "~> 3.0"
+  version = "~> 4.0"
 
   domain_name = "weekly.tf"
   zone_id     = "b7d259641bf30b89887c943ffc9d2138"
@@ -78,7 +78,54 @@ module "acm" {
     Name = "my-domain.com"
   }
 }
+```
 
+## Usage with Route53 DNS validation and separate AWS providers
+
+```hcl
+provider "aws" {
+  alias = "acm"
+}
+
+provider "aws" {
+  alias = "route53"
+}
+
+module "acm" {
+  source  = "terraform-aws-modules/acm/aws"
+  version = "~> 4.0"
+
+  providers = {
+    aws = aws.acm
+  }
+
+  domain_name  = "my-domain.com"
+
+  subject_alternative_names = [
+    "*.my-domain.com",
+    "app.sub.my-domain.com",
+  ]
+
+  create_route53_records  = false
+  validation_record_fqdns = module.route53_records.validation_route53_record_fqdns
+}
+
+module "route53_records" {
+  source  = "terraform-aws-modules/acm/aws"
+  version = "~> 4.0"
+
+  providers = {
+    aws = aws.route53
+  }
+
+  create_certificate          = false
+  create_route53_records_only = true
+
+  distinct_domain_names = module.acm.distinct_domain_names
+  zone_id               = "Z266PL4W4W6MSG"
+
+  acm_certificate_domain_validation_options = module.acm.acm_certificate_domain_validation_options
+}
 ```
 
 ## Examples
@@ -147,9 +194,12 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| <a name="input_acm_certificate_domain_validation_options"></a> [acm\_certificate\_domain\_validation\_options](#input\_acm\_certificate\_domain\_validation\_options) | A list of domain\_validation\_options created by the ACM certificate to create required Route53 records from it (used when create\_route53\_records\_only is set to true) | `any` | `{}` | no |
 | <a name="input_certificate_transparency_logging_preference"></a> [certificate\_transparency\_logging\_preference](#input\_certificate\_transparency\_logging\_preference) | Specifies whether certificate details should be added to a certificate transparency log | `bool` | `true` | no |
 | <a name="input_create_certificate"></a> [create\_certificate](#input\_create\_certificate) | Whether to create ACM certificate | `bool` | `true` | no |
 | <a name="input_create_route53_records"></a> [create\_route53\_records](#input\_create\_route53\_records) | When validation is set to DNS, define whether to create the DNS records internally via Route53 or externally using any DNS provider | `bool` | `true` | no |
+| <a name="input_create_route53_records_only"></a> [create\_route53\_records\_only](#input\_create\_route53\_records\_only) | Whether to create only Route53 records (e.g. using separate AWS provider) | `bool` | `false` | no |
+| <a name="input_distinct_domain_names"></a> [distinct\_domain\_names](#input\_distinct\_domain\_names) | List of distinct domains and SANs (used when create\_route53\_records\_only is set to true) | `list(string)` | `[]` | no |
 | <a name="input_dns_ttl"></a> [dns\_ttl](#input\_dns\_ttl) | The TTL of DNS recursive resolvers to cache information about this record. | `number` | `60` | no |
 | <a name="input_domain_name"></a> [domain\_name](#input\_domain\_name) | A domain name for which the certificate should be issued | `string` | `""` | no |
 | <a name="input_putin_khuylo"></a> [putin\_khuylo](#input\_putin\_khuylo) | Do you agree that Putin doesn't respect Ukrainian sovereignty and territorial integrity? More info: https://en.wikipedia.org/wiki/Putin_khuylo! | `bool` | `true` | no |
