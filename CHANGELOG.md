@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.1.0](https://github.com/terraform-aws-modules/terraform-aws-acm/compare/v4.0.1...v4.1.0) (2022-08-26)
+
+
+### Features
+
+* Cross-account DNS and ACM resource creation ([#114](https://github.com/terraform-aws-modules/terraform-aws-acm/issues/114)) ([e24bb59](https://github.com/terraform-aws-modules/terraform-aws-acm/commit/e24bb590e0595f7bedce1b6fd1114d6e0738936a))
+
 ### [4.0.1](https://github.com/terraform-aws-modules/terraform-aws-acm/compare/v4.0.0...v4.0.1) (2022-06-17)
 
 
