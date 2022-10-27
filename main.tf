@@ -65,5 +65,5 @@ resource "aws_acm_certificate_validation" "this" {
 
   certificate_arn = aws_acm_certificate.this[0].arn
 
-  validation_record_fqdns = flatten([aws_route53_record.validation.*.fqdn, var.validation_record_fqdns])
+  validation_record_fqdns = flatten([aws_route53_record.validation[*].fqdn, var.validation_record_fqdns])
 }
