@@ -8,6 +8,7 @@ module "wrapper" {
   validate_certificate                        = try(each.value.validate_certificate, var.defaults.validate_certificate, true)
   validation_allow_overwrite_records          = try(each.value.validation_allow_overwrite_records, var.defaults.validation_allow_overwrite_records, true)
   wait_for_validation                         = try(each.value.wait_for_validation, var.defaults.wait_for_validation, true)
+  validation_timeout                          = try(each.value.validation_timeout, var.defaults.validation_timeout, null)
   certificate_transparency_logging_preference = try(each.value.certificate_transparency_logging_preference, var.defaults.certificate_transparency_logging_preference, true)
   domain_name                                 = try(each.value.domain_name, var.defaults.domain_name, "")
   subject_alternative_names                   = try(each.value.subject_alternative_names, var.defaults.subject_alternative_names, [])
