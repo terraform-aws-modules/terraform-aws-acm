@@ -28,6 +28,12 @@ variable "wait_for_validation" {
   default     = true
 }
 
+variable "validation_timeout" {
+  description = "Define maximum timeout to wait for the validation to complete"
+  type        = string
+  default     = null
+}
+
 variable "certificate_transparency_logging_preference" {
   description = "Specifies whether certificate details should be added to a certificate transparency log"
   type        = bool
