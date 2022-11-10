@@ -7,7 +7,7 @@ locals {
   # Removing trailing dot from domain - just to be sure :)
   domain_name = trimsuffix(local.domain, ".")
 
-  zone_id = coalescelist(data.aws_route53_zone.this.*.zone_id, aws_route53_zone.this.*.zone_id)[0]
+  zone_id = coalescelist(data.aws_route53_zone.this[*].zone_id, aws_route53_zone.this[*].zone_id)[0]
 }
 
 ##########################################################

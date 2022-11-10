@@ -24,7 +24,7 @@ module "acm" {
   ]
 
   create_route53_records  = false
-  validation_record_fqdns = cloudflare_record.validation.*.hostname
+  validation_record_fqdns = cloudflare_record.validation[*].hostname
 
   tags = {
     Name = local.domain_name
