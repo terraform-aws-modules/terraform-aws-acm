@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+### [4.1.1](https://github.com/terraform-aws-modules/terraform-aws-acm/compare/v4.1.0...v4.1.1) (2022-11-14)
+
+
+### Bug Fixes
+
+* Update CI configuration files to use latest version ([#122](https://github.com/terraform-aws-modules/terraform-aws-acm/issues/122)) ([8aa7fd0](https://github.com/terraform-aws-modules/terraform-aws-acm/commit/8aa7fd0e5e07e5221ab859f6ae425fe653f0e6f7))
+
 ## [4.1.0](https://github.com/terraform-aws-modules/terraform-aws-acm/compare/v4.0.1...v4.1.0) (2022-08-26)
 
 

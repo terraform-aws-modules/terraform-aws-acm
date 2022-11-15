@@ -1,6 +1,6 @@
 output "acm_certificate_arn" {
   description = "The ARN of the certificate"
-  value       = element(concat(aws_acm_certificate_validation.this[*].certificate_arn, aws_acm_certificate.this[*].arn, [""]), 0)
+  value       = try(aws_acm_certificate_validation.this[0].certificate_arn, aws_acm_certificate.this[0].arn, "")
 }
 
 output "acm_certificate_domain_validation_options" {
@@ -10,7 +10,7 @@ output "acm_certificate_domain_validation_options" {
 
 output "acm_certificate_status" {
   description = "Status of the certificate."
-  value       = element(concat(aws_acm_certificate.this[*].status, [""]), 0)
+  value       = try(aws_acm_certificate.this[0].status, "")
 }
 
 output "acm_certificate_validation_emails" {
