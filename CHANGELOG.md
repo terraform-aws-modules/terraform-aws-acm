@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.2.0](https://github.com/terraform-aws-modules/terraform-aws-acm/compare/v4.1.1...v4.2.0) (2022-11-15)
+
+
+### Features
+
+* Make validation timeout configurable ([#124](https://github.com/terraform-aws-modules/terraform-aws-acm/issues/124)) ([84c1941](https://github.com/terraform-aws-modules/terraform-aws-acm/commit/84c194109ac2ac0455df92afc3edfd0e1248775f))
+
 ### [4.1.1](https://github.com/terraform-aws-modules/terraform-aws-acm/compare/v4.1.0...v4.1.1) (2022-11-14)
 
 
