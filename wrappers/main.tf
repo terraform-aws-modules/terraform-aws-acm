@@ -21,5 +21,6 @@ module "wrapper" {
   dns_ttl                                     = try(each.value.dns_ttl, var.defaults.dns_ttl, 60)
   acm_certificate_domain_validation_options   = try(each.value.acm_certificate_domain_validation_options, var.defaults.acm_certificate_domain_validation_options, {})
   distinct_domain_names                       = try(each.value.distinct_domain_names, var.defaults.distinct_domain_names, [])
+  key_algorithm                               = try(each.value.key_algorithm, var.defaults.key_algorithm, null)
   putin_khuylo                                = try(each.value.putin_khuylo, var.defaults.putin_khuylo, true)
 }
