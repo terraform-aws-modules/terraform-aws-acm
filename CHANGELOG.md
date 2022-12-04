@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.3.0](https://github.com/terraform-aws-modules/terraform-aws-acm/compare/v4.2.0...v4.3.0) (2022-12-04)
+
+
+### Features
+
+* Add support to key algorithm argument ([#125](https://github.com/terraform-aws-modules/terraform-aws-acm/issues/125)) ([e35292c](https://github.com/terraform-aws-modules/terraform-aws-acm/commit/e35292caf55eb17f593a1d51283c1f598246f8ff))
+
 ## [4.2.0](https://github.com/terraform-aws-modules/terraform-aws-acm/compare/v4.1.1...v4.2.0) (2022-11-15)
 
 
