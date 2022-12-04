@@ -111,6 +111,12 @@ variable "distinct_domain_names" {
   default     = []
 }
 
+variable "key_algorithm" {
+  description = "Specifies the algorithm of the public and private key pair that your Amazon issued certificate uses to encrypt data"
+  type        = string
+  default     = null
+}
+
 variable "putin_khuylo" {
   description = "Do you agree that Putin doesn't respect Ukrainian sovereignty and territorial integrity? More info: https://en.wikipedia.org/wiki/Putin_khuylo!"
   type        = bool
