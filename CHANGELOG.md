@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+### [4.3.1](https://github.com/terraform-aws-modules/terraform-aws-acm/compare/v4.3.0...v4.3.1) (2022-12-08)
+
+
+### Bug Fixes
+
+* Set correct version of AWS provider on module root ([#126](https://github.com/terraform-aws-modules/terraform-aws-acm/issues/126)) ([7a0e3e3](https://github.com/terraform-aws-modules/terraform-aws-acm/commit/7a0e3e3c20b270b6f4c8b202fdacc5aa6151be60))
+
 ## [4.3.0](https://github.com/terraform-aws-modules/terraform-aws-acm/compare/v4.2.0...v4.3.0) (2022-12-04)
 
 
