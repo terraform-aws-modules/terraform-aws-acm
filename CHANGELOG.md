@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+### [4.3.2](https://github.com/terraform-aws-modules/terraform-aws-acm/compare/v4.3.1...v4.3.2) (2023-01-24)
+
+
+### Bug Fixes
+
+* Upgrade CI workflows to use non-deprecated runtimes ([#130](https://github.com/terraform-aws-modules/terraform-aws-acm/issues/130)) ([4cf8799](https://github.com/terraform-aws-modules/terraform-aws-acm/commit/4cf8799b180165934d15caa4c01463d11a26f83b))
+* Use a version for  to avoid GitHub API rate limiting on CI workflows ([#128](https://github.com/terraform-aws-modules/terraform-aws-acm/issues/128)) ([62bc31a](https://github.com/terraform-aws-modules/terraform-aws-acm/commit/62bc31a7c5fc1da8fcd8d7a71ba75cc33e8c3026))
+
 ### [4.3.1](https://github.com/terraform-aws-modules/terraform-aws-acm/compare/v4.3.0...v4.3.1) (2022-12-08)
 
 
