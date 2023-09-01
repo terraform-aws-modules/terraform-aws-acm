@@ -6,9 +6,12 @@ terraform {
       source  = "hashicorp/aws"
       version = ">= 4.40"
     }
+    # Terraform v1.0.0 only functional with cloudflare versions less than or equal to 3.33.0
+    # Cloudflare provider version 3.33.0 introduced a regression which produced errors when
+    # passing credentials via environment variables
     cloudflare = {
       source  = "cloudflare/cloudflare"
-      version = ">= 3.4"
+      version = ">= 3.4, <=3.32"
     }
   }
 }
