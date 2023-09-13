@@ -17,6 +17,7 @@ module "wrapper" {
   create_route53_records                      = try(each.value.create_route53_records, var.defaults.create_route53_records, true)
   validation_record_fqdns                     = try(each.value.validation_record_fqdns, var.defaults.validation_record_fqdns, [])
   zone_id                                     = try(each.value.zone_id, var.defaults.zone_id, "")
+  zones                                       = try(each.value.zones, var.defaults.zones, {})
   tags                                        = try(each.value.tags, var.defaults.tags, {})
   dns_ttl                                     = try(each.value.dns_ttl, var.defaults.dns_ttl, 60)
   acm_certificate_domain_validation_options   = try(each.value.acm_certificate_domain_validation_options, var.defaults.acm_certificate_domain_validation_options, {})
