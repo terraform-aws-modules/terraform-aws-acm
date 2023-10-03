@@ -2,6 +2,9 @@ locals {
   create_certificate          = var.create_certificate && var.putin_khuylo
   create_route53_records_only = var.create_route53_records_only && var.putin_khuylo
 
+  # https://github.com/terraform-aws-modules/terraform-aws-acm/pull/135
+  validation_method = var.validation_method == "NONE" ? null : var.validation_method
+
   # Get distinct list of domains and SANs
   distinct_domain_names = coalescelist(var.distinct_domain_names, distinct(
     [for s in concat([var.domain_name], var.subject_alternative_names) : replace(s, "*.", "")]
@@ -21,7 +24,7 @@ resource "aws_acm_certificate" "this" {
 
   domain_name               = var.domain_name
   subject_alternative_names = var.subject_alternative_names
-  validation_method         = var.validation_method
+  validation_method         = local.validation_method
   key_algorithm             = var.key_algorithm
 
   options {
@@ -45,7 +48,7 @@ resource "aws_acm_certificate" "this" {
 }
 
 resource "aws_route53_record" "validation" {
-  count = (local.create_certificate || local.create_route53_records_only) && var.validation_method == "DNS" && var.create_route53_records && (var.validate_certificate || local.create_route53_records_only) ? length(local.distinct_domain_names) : 0
+  count = (local.create_certificate || local.create_route53_records_only) && local.validation_method == "DNS" && var.create_route53_records && (var.validate_certificate || local.create_route53_records_only) ? length(local.distinct_domain_names) : 0
 
   zone_id = var.zone_id
   name    = element(local.validation_domains, count.index)["resource_record_name"]
@@ -62,7 +65,7 @@ resource "aws_route53_record" "validation" {
 }
 
 resource "aws_acm_certificate_validation" "this" {
-  count = local.create_certificate && var.validation_method != null && var.validate_certificate && var.wait_for_validation ? 1 : 0
+  count = local.create_certificate && local.validation_method != null && var.validate_certificate && var.wait_for_validation ? 1 : 0
 
   certificate_arn = aws_acm_certificate.this[0].arn
 
