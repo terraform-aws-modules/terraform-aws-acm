@@ -13,6 +13,8 @@ module "acm" {
 
   domain_name  = "my-domain.com"
   zone_id      = "Z2ES7B9AZ6SHAE"
+  
+  validation_method = "DNS"
 
   subject_alternative_names = [
     "*.my-domain.com",
@@ -36,6 +38,8 @@ module "acm" {
 
   domain_name = "weekly.tf"
   zone_id     = "b7d259641bf30b89887c943ffc9d2138"
+
+  validation_method = "DNS"
 
   subject_alternative_names = [
     "*.weekly.tf",
@@ -72,6 +76,8 @@ module "acm" {
   domain_name = "my-domain.com"
   zone_id     = "Z266PL4W4W6MSG"
 
+  validation_method = "DNS"
+
   wait_for_validation = true
 
   tags = {
@@ -106,6 +112,8 @@ module "acm" {
     "app.sub.my-domain.com",
   ]
 
+  validation_method = "DNS"
+
   create_route53_records  = false
   validation_record_fqdns = module.route53_records.validation_route53_record_fqdns
 }
@@ -120,6 +128,8 @@ module "route53_records" {
 
   create_certificate          = false
   create_route53_records_only = true
+
+  validation_method = "DNS"
 
   distinct_domain_names = module.acm.distinct_domain_names
   zone_id               = "Z266PL4W4W6MSG"
@@ -208,7 +218,7 @@ No modules.
 | <a name="input_tags"></a> [tags](#input\_tags) | A mapping of tags to assign to the resource | `map(string)` | `{}` | no |
 | <a name="input_validate_certificate"></a> [validate\_certificate](#input\_validate\_certificate) | Whether to validate certificate by creating Route53 record | `bool` | `true` | no |
 | <a name="input_validation_allow_overwrite_records"></a> [validation\_allow\_overwrite\_records](#input\_validation\_allow\_overwrite\_records) | Whether to allow overwrite of Route53 records | `bool` | `true` | no |
-| <a name="input_validation_method"></a> [validation\_method](#input\_validation\_method) | Which method to use for validation. DNS or EMAIL are valid, NONE can be used for certificates that were imported into ACM and then into Terraform. | `string` | `"DNS"` | no |
+| <a name="input_validation_method"></a> [validation\_method](#input\_validation\_method) | Which method to use for validation. DNS or EMAIL are valid. This parameter must not be set for certificates that were imported into ACM and then into Terraform. | `string` | `null` | no |
 | <a name="input_validation_option"></a> [validation\_option](#input\_validation\_option) | The domain name that you want ACM to use to send you validation emails. This domain name is the suffix of the email addresses that you want ACM to use. | `any` | `{}` | no |
 | <a name="input_validation_record_fqdns"></a> [validation\_record\_fqdns](#input\_validation\_record\_fqdns) | When validation is set to DNS and the DNS validation records are set externally, provide the fqdns for the validation | `list(string)` | `[]` | no |
 | <a name="input_validation_timeout"></a> [validation\_timeout](#input\_validation\_timeout) | Define maximum timeout to wait for the validation to complete | `string` | `null` | no |

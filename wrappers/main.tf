@@ -12,7 +12,7 @@ module "wrapper" {
   certificate_transparency_logging_preference = try(each.value.certificate_transparency_logging_preference, var.defaults.certificate_transparency_logging_preference, true)
   domain_name                                 = try(each.value.domain_name, var.defaults.domain_name, "")
   subject_alternative_names                   = try(each.value.subject_alternative_names, var.defaults.subject_alternative_names, [])
-  validation_method                           = try(each.value.validation_method, var.defaults.validation_method, "DNS")
+  validation_method                           = try(each.value.validation_method, var.defaults.validation_method, null)
   validation_option                           = try(each.value.validation_option, var.defaults.validation_option, {})
   create_route53_records                      = try(each.value.create_route53_records, var.defaults.create_route53_records, true)
   validation_record_fqdns                     = try(each.value.validation_record_fqdns, var.defaults.validation_record_fqdns, [])
