@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.5.0](https://github.com/terraform-aws-modules/terraform-aws-acm/compare/v4.4.0...v4.5.0) (2023-10-05)
+
+
+### Features
+
+* Revert of removing `NONE` validation method and set default to `null` ([#140](https://github.com/terraform-aws-modules/terraform-aws-acm/issues/140)) ([2b53d66](https://github.com/terraform-aws-modules/terraform-aws-acm/commit/2b53d66c534c15c45b5a462407ca622516dda102))
+
 ## [4.4.0](https://github.com/terraform-aws-modules/terraform-aws-acm/compare/v4.3.2...v4.4.0) (2023-10-03)
 
 
