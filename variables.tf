@@ -53,13 +53,13 @@ variable "subject_alternative_names" {
 }
 
 variable "validation_method" {
-  description = "Which method to use for validation. DNS or EMAIL are valid, NONE can be used for certificates that were imported into ACM and then into Terraform."
+  description = "Which method to use for validation. DNS or EMAIL are valid. This parameter must not be set for certificates that were imported into ACM and then into Terraform."
   type        = string
-  default     = "DNS"
+  default     = null
 
   validation {
-    condition     = contains(["DNS", "EMAIL", "NONE"], var.validation_method)
-    error_message = "Valid values are DNS, EMAIL or NONE."
+    condition     = var.validation_method == null || contains(["DNS", "EMAIL"], coalesce(var.validation_method, 0))
+    error_message = "This variable is optional. Valid values are DNS, EMAIL, or null."
   }
 }
 
