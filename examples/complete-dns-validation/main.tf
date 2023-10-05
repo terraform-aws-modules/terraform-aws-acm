@@ -46,8 +46,6 @@ module "acm" {
     "alerts.${local.domain_name}",
   ]
 
-  validation_method = "DNS"
-
   tags = {
     Name = local.domain_name
   }
@@ -83,7 +81,6 @@ module "acm_only" {
   ]
 
   create_route53_records  = false
-  validation_method       = "DNS"
   validation_record_fqdns = module.route53_records_only.validation_route53_record_fqdns
 }
 
@@ -96,7 +93,6 @@ module "route53_records_only" {
 
   create_certificate          = false
   create_route53_records_only = true
-  validation_method           = "DNS"
 
   zone_id               = local.zone_id
   distinct_domain_names = module.acm_only.distinct_domain_names
