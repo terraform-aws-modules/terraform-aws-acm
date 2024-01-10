@@ -1,0 +1,27 @@
+name: pipeline to push modules to registry
+on:
+  push:
+    tags:
+      - v*
+env:
+  REGISTRY_HOST: https://registry.craftech.io
+
+jobs:
+  push-to-registry:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: push modules to registry
+        uses: craftech-io/publish-terraform-module-action@v1.1.0
+        with:
+          api-key: ${{ secrets.PRD_API_KEY_REGISTRY }}
+          hostname: ${{ env.REGISTRY_HOST }}
+          namespace: craftech
+          module-name: ${{ github.event.repository.name }}
+          system: aws
+          version: ${{ github.ref_name }}
+          modules-path: modules/
+          lower-terraform-version: "0.99.99"
+          higher-terraform-version: "1.6"

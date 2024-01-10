@@ -1,3 +1,23 @@
+# ----------------------------------------------------------------------------------------------------------------------
+# TERRAFORM VERSION
+# ----------------------------------------------------------------------------------------------------------------------
+
+terraform {
+  required_version = "~> 1.5.1"
+
+  # This module has been updated for helm v3 usage. We do not recommend using this version with helm v2.
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 5.5.0"
+    }
+  }
+}
+
+# ---------------------------------------------------------------------------------------------------------------------
+# CREATE ACM CERTIFICATE
+# ---------------------------------------------------------------------------------------------------------------------
+
 locals {
   # Get distinct list of domains and SANs
   distinct_domain_names = distinct(
