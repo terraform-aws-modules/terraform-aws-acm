@@ -23,7 +23,7 @@ Note that this example may create resources which cost money. Run `terraform des
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.5.1 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= >= 1.0.0, <=1.5.5 |
 | <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 5.5.0 |
 
 ## Providers
