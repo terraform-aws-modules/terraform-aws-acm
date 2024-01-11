@@ -24,4 +24,4 @@ jobs:
           version: ${{ github.ref_name }}
           modules-path: modules/
           lower-terraform-version: "0.99.99"
-          higher-terraform-version: "1.6"
+          higher-terraform-version: "1.5.6"
