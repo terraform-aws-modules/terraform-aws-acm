@@ -11,7 +11,7 @@ provider "aws" {
 # ACM
 # ---------------------------------------------------------------------------------------------------------------------
 module "acm" {
-  source = "../.."
+  source = "../../modules/acm/"
 
   create_certificate = var.create_certificate
   domain_name        = var.domain_name

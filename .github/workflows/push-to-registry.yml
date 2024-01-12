@@ -3,8 +3,7 @@ on:
   push:
     tags:
       - v*
-    branches:
-      - chore/refactor-registry-ci
+
 env:
   REGISTRY_HOST: https://registry.craftech.io
 

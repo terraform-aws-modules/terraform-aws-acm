@@ -3,7 +3,7 @@ resource "aws_route53_zone" "this" {
 }
 
 module "acm" {
-  source = "../../"
+  source = "../../modules/acm/"
 
   domain_name = var.domain_name
   zone_id     = aws_route53_zone.this.zone_id
