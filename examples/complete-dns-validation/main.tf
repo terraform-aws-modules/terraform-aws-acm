@@ -106,42 +106,55 @@ module "route53_records_only" {
 
 ################################################################
 # Example 3:
-# Using separate AWS providers for ACM and Route53 records.
-# Useful when these resources belong to different AWS accounts.
+# Use separate providers for ACM and Route53 with for_each
 #
 # 1. Clone this module into a local module
 # 2. Modify configuration_aliases for your aws provider:
 #
 #     configuration_aliases = [aws.acm, aws.dns]
 #
-# 3. Add a variable called `domain_zones` to pass in your different domain/zone
-# pairs in a map
-# 4. Call the module with your respective providers like below
+# 3. Set your providers
+# 4. Pass in your domains/zones/altnames as a list(object) to for_each
+# 5. Call the module with your respective providers like below
 ################################################################
-
-module "acm" {
-  source   = "../../modules/acm"
-  for_each = {
-    "domain1" = "zone1_id",
-    "domain2" = "zone2_id"
-  }
-
-  providers = {
-    aws.acm = aws.primary
-    aws.dns = aws.legacy_dns
-  }
-
-  domain_name = each.key
-  zone_id     = each.value
-
-  subject_alternative_names = [
-    "*.${each.key}",
-  ]
-
-  validation_method   = "DNS"
-  wait_for_validation = true
-
-  tags = {
-    Name = each.key
-  }
-}
+#
+# locals {
+#   domains_zones = [
+#     {
+#       domain = "example1.com",
+#       zone_id = "AAAAAAAAAAAAAA",
+#       subject_alt_names = [
+#         "*.example1.com"
+#       ]
+#     },
+#     {
+#       domain = "example2.com",
+#       zone_id = "BBBBBBBBBBBBBB",
+#       subject_alt_names = [
+#         "sub.example2.com"
+#       ]
+#     },
+#   ]
+# }
+#
+# module "acm" {
+#   source = "path/to/local/module"
+#   for_each = local.domain_zones
+#
+#   providers = {
+#     aws.acm = aws.primary
+#     aws.dns = aws.legacy_dns
+#   }
+#
+#   domain_name = each.value.domain
+#   zone_id     = each.value.zone_id
+#
+#   subject_alternative_names = each.value.subject_alt_names
+#
+#   validation_method   = "DNS"
+#   wait_for_validation = true
+#
+#   tags = {
+#     Name = each.value.domain
+#   }
+# }
