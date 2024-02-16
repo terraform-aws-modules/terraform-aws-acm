@@ -103,3 +103,45 @@ module "route53_records_only" {
 
   acm_certificate_domain_validation_options = module.acm_only.acm_certificate_domain_validation_options
 }
+
+################################################################
+# Example 3:
+# Using separate AWS providers for ACM and Route53 records.
+# Useful when these resources belong to different AWS accounts.
+#
+# 1. Clone this module into a local module
+# 2. Modify configuration_aliases for your aws provider:
+#
+#     configuration_aliases = [aws.acm, aws.dns]
+#
+# 3. Add a variable called `domain_zones` to pass in your different domain/zone
+# pairs in a map
+# 4. Call the module with your respective providers like below
+################################################################
+
+module "acm" {
+  source   = "../../modules/acm"
+  for_each = {
+    "domain1" = "zone1_id",
+    "domain2" = "zone2_id"
+  }
+
+  providers = {
+    aws.acm = aws.primary
+    aws.dns = aws.legacy_dns
+  }
+
+  domain_name = each.key
+  zone_id     = each.value
+
+  subject_alternative_names = [
+    "*.${each.key}",
+  ]
+
+  validation_method   = "DNS"
+  wait_for_validation = true
+
+  tags = {
+    Name = each.key
+  }
+}
