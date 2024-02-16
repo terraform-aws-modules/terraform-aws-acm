@@ -113,7 +113,7 @@ module "route53_records_only" {
 #
 #     configuration_aliases = [aws.acm, aws.dns]
 #
-# 3. Set your providers
+# 3. Modify resources in the module to use either the acm or dns provider
 # 4. Pass in your domains/zones/altnames as a list(object) to for_each
 # 5. Call the module with your respective providers like below
 ################################################################
@@ -142,8 +142,8 @@ module "route53_records_only" {
 #   for_each = local.domain_zones
 #
 #   providers = {
-#     aws.acm = aws.primary
-#     aws.dns = aws.legacy_dns
+#     aws.acm = aws.acm_provider
+#     aws.dns = aws.dns_provider
 #   }
 #
 #   domain_name = each.value.domain
