@@ -11,7 +11,7 @@ variable "domain" {
 }
 
 variable "extra_domain" {
-  description = "Extr adomain to be used for the tests"
+  description = "Extra domain to be used in acm_multi_domain module"
   type        = string
   default     = "extra.terraform-aws-modules.modules.tf"
 }

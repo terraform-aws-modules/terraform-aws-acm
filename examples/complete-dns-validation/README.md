@@ -55,7 +55,7 @@ Note that this example may create resources which cost money. Run `terraform des
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_domain"></a> [domain](#input\_domain) | Domain to be used for the tests | `string` | `"terraform-aws-modules.modules.tf"` | no |
-| <a name="input_extra_domain"></a> [extra\_domain](#input\_extra\_domain) | Extr adomain to be used for the tests | `string` | `"extra.terraform-aws-modules.modules.tf"` | no |
+| <a name="input_extra_domain"></a> [extra\_domain](#input\_extra\_domain) | Extra domain to be used in acm\_multi\_domain module | `string` | `"extra.terraform-aws-modules.modules.tf"` | no |
 | <a name="input_use_existing_route53_zone"></a> [use\_existing\_route53\_zone](#input\_use\_existing\_route53\_zone) | Use existing (via data source) or create new zone (will fail validation, if zone is not reachable) | `bool` | `true` | no |
 
 ## Outputs

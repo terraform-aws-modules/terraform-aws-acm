@@ -8,8 +8,6 @@ locals {
   # Removing trailing dot from domain - just to be sure :)
   domain_name = trimsuffix(local.domain, ".")
 
-  region = "us-east-1"
-
   zone_id = try(data.aws_route53_zone.this[0].zone_id, aws_route53_zone.this[0].zone_id)
 }
 
@@ -35,7 +33,8 @@ module "acm" {
   source = "../../"
 
   providers = {
-    aws = aws.acm
+    aws.acm = aws,
+    aws.dns = aws
   }
 
   domain_name = local.domain_name
@@ -62,13 +61,11 @@ module "acm" {
 ################################################################
 
 provider "aws" {
-  alias  = "route53"
-  region = local.region
+  alias = "route53"
 }
 
 provider "aws" {
-  alias  = "acm"
-  region = local.region
+  alias = "acm"
 }
 
 module "acm_only" {
@@ -108,16 +105,12 @@ module "route53_records_only" {
   acm_certificate_domain_validation_options = module.acm_only.acm_certificate_domain_validation_options
 }
 
-##########################################################
-# Example 3 (use multiple domains in the same certificate):
-# Generate an ACM certificate for multiple domains, useful
-# to be used in CloudFront which only supports one ACM
-# certificate.
-##########################################################
-
-provider "aws" {
-  region = local.region
-}
+###############################################################################
+# Example 3:
+# Single certificate with multiple domains from different Route53 hosted zones.
+# Useful when using the certificate for CloudFront, which only support a
+# single certificate per distribution.
+###############################################################################
 
 data "aws_route53_zone" "extra" {
   count = local.use_existing_route53_zone ? 1 : 0
@@ -141,24 +134,16 @@ module "acm_multi_domain" {
   subject_alternative_names = [
     "*.alerts.${local.domain_name}",
     "new.sub.${local.domain_name}",
-    "*.${local.domain_name}",
-    "alerts.${local.domain_name}",
+    local.extra_domain,
     "*.alerts.${local.extra_domain}",
     "new.sub.${local.extra_domain}",
-    "*.${local.extra_domain}",
-    "alerts.${local.extra_domain}",
-    local.extra_domain,
-    "*.${local.extra_domain}"
   ]
+
+  validation_method = "DNS"
 
   zones = {
     (local.extra_domain)            = try(data.aws_route53_zone.extra[0].zone_id, aws_route53_zone.extra[0].zone_id),
     "alerts.${local.extra_domain}"  = try(data.aws_route53_zone.extra[0].zone_id, aws_route53_zone.extra[0].zone_id),
     "new.sub.${local.extra_domain}" = try(data.aws_route53_zone.extra[0].zone_id, aws_route53_zone.extra[0].zone_id)
-  }
-
-  tags = {
-    Name         = local.domain_name
-    Extra_Domain = local.extra_domain
   }
 }
