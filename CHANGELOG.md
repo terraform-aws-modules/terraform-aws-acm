@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [5.0.1](https://github.com/terraform-aws-modules/terraform-aws-acm/compare/v5.0.0...v5.0.1) (2024-03-06)
+
+
+### Bug Fixes
+
+* Update CI workflow versions to remove deprecated runtime warnings ([#151](https://github.com/terraform-aws-modules/terraform-aws-acm/issues/151)) ([859fb3c](https://github.com/terraform-aws-modules/terraform-aws-acm/commit/859fb3c606855913d5bb7379bbdbdbedbd2970d9))
+
 ## [5.0.0](https://github.com/terraform-aws-modules/terraform-aws-acm/compare/v4.5.0...v5.0.0) (2023-10-05)
 
 
