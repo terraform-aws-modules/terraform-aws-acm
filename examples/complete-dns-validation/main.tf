@@ -103,3 +103,58 @@ module "route53_records_only" {
 
   acm_certificate_domain_validation_options = module.acm_only.acm_certificate_domain_validation_options
 }
+
+################################################################
+# Example 3:
+# Use separate providers for ACM and Route53 with for_each
+#
+# 1. Clone this module into a local module
+# 2. Modify configuration_aliases for your aws provider:
+#
+#     configuration_aliases = [aws.acm, aws.dns]
+#
+# 3. Modify resources in the module to use either the acm or dns provider
+# 4. Pass in your domains/zones/altnames as a list(object) to for_each
+# 5. Call the module with your respective providers like below
+################################################################
+#
+# locals {
+#   domains_zones = [
+#     {
+#       domain = "example1.com",
+#       zone_id = "AAAAAAAAAAAAAA",
+#       subject_alt_names = [
+#         "*.example1.com"
+#       ]
+#     },
+#     {
+#       domain = "example2.com",
+#       zone_id = "BBBBBBBBBBBBBB",
+#       subject_alt_names = [
+#         "sub.example2.com"
+#       ]
+#     },
+#   ]
+# }
+#
+# module "acm" {
+#   source = "path/to/local/module"
+#   for_each = local.domain_zones
+#
+#   providers = {
+#     aws.acm = aws.acm_provider
+#     aws.dns = aws.dns_provider
+#   }
+#
+#   domain_name = each.value.domain
+#   zone_id     = each.value.zone_id
+#
+#   subject_alternative_names = each.value.subject_alt_names
+#
+#   validation_method   = "DNS"
+#   wait_for_validation = true
+#
+#   tags = {
+#     Name = each.value.domain
+#   }
+# }
