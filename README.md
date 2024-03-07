@@ -224,6 +224,7 @@ No modules.
 | <a name="input_validation_timeout"></a> [validation\_timeout](#input\_validation\_timeout) | Define maximum timeout to wait for the validation to complete | `string` | `null` | no |
 | <a name="input_wait_for_validation"></a> [wait\_for\_validation](#input\_wait\_for\_validation) | Whether to wait for the validation to complete | `bool` | `true` | no |
 | <a name="input_zone_id"></a> [zone\_id](#input\_zone\_id) | The ID of the hosted zone to contain this record. Required when validating via Route53 | `string` | `""` | no |
+| <a name="input_zones"></a> [zones](#input\_zones) | Map containing the Route53 Zone IDs for additional domains. | `map(string)` | `{}` | no |
 
 ## Outputs
 

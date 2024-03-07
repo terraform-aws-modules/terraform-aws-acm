@@ -87,6 +87,12 @@ variable "zone_id" {
   default     = ""
 }
 
+variable "zones" {
+  description = "Map containing the Route53 Zone IDs for additional domains."
+  type        = map(string)
+  default     = {}
+}
+
 variable "tags" {
   description = "A mapping of tags to assign to the resource"
   type        = map(string)

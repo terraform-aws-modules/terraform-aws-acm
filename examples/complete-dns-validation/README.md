@@ -37,6 +37,7 @@ Note that this example may create resources which cost money. Run `terraform des
 | Name | Source | Version |
 |------|--------|---------|
 | <a name="module_acm"></a> [acm](#module\_acm) | ../../ | n/a |
+| <a name="module_acm_multi_domain"></a> [acm\_multi\_domain](#module\_acm\_multi\_domain) | ../../ | n/a |
 | <a name="module_acm_only"></a> [acm\_only](#module\_acm\_only) | ../../ | n/a |
 | <a name="module_route53_records_only"></a> [route53\_records\_only](#module\_route53\_records\_only) | ../../ | n/a |
 
@@ -44,12 +45,18 @@ Note that this example may create resources which cost money. Run `terraform des
 
 | Name | Type |
 |------|------|
+| [aws_route53_zone.extra](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route53_zone) | resource |
 | [aws_route53_zone.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route53_zone) | resource |
+| [aws_route53_zone.extra](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/route53_zone) | data source |
 | [aws_route53_zone.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/route53_zone) | data source |
 
 ## Inputs
 
-No inputs.
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| <a name="input_domain"></a> [domain](#input\_domain) | Domain to be used for the tests | `string` | `"terraform-aws-modules.modules.tf"` | no |
+| <a name="input_extra_domain"></a> [extra\_domain](#input\_extra\_domain) | Extra domain to be used in acm\_multi\_domain module | `string` | `"extra.terraform-aws-modules.modules.tf"` | no |
+| <a name="input_use_existing_route53_zone"></a> [use\_existing\_route53\_zone](#input\_use\_existing\_route53\_zone) | Use existing (via data source) or create new zone (will fail validation, if zone is not reachable) | `bool` | `true` | no |
 
 ## Outputs
 

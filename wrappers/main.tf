@@ -23,4 +23,5 @@ module "wrapper" {
   validation_timeout                          = try(each.value.validation_timeout, var.defaults.validation_timeout, null)
   wait_for_validation                         = try(each.value.wait_for_validation, var.defaults.wait_for_validation, true)
   zone_id                                     = try(each.value.zone_id, var.defaults.zone_id, "")
+  zones                                       = try(each.value.zones, var.defaults.zones, {})
 }
