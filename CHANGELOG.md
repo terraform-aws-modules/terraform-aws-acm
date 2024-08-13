@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [5.1.0](https://github.com/terraform-aws-modules/terraform-aws-acm/compare/v5.0.1...v5.1.0) (2024-08-13)
+
+
+### Features
+
+* Allow multiple domains in a single certificate ([#149](https://github.com/terraform-aws-modules/terraform-aws-acm/issues/149)) ([54e5422](https://github.com/terraform-aws-modules/terraform-aws-acm/commit/54e54221403d73e1cb081c910058bbc600d2e0fc))
+
 ## [5.0.1](https://github.com/terraform-aws-modules/terraform-aws-acm/compare/v5.0.0...v5.0.1) (2024-03-06)
 
 
