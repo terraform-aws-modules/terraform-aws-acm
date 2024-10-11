@@ -7,8 +7,8 @@ on:
       - master
 
 env:
-  TERRAFORM_DOCS_VERSION: v0.16.0
-  TFLINT_VERSION: v0.50.3
+  TERRAFORM_DOCS_VERSION: v0.19.0
+  TFLINT_VERSION: v0.53.0
 
 jobs:
   collectInputs:
@@ -45,14 +45,14 @@ jobs:
 
       - name: Terraform min/max versions
         id: minMax
-        uses: clowdhaus/terraform-min-max@v1.3.0
+        uses: clowdhaus/terraform-min-max@v1.3.1
         with:
           directory: ${{ matrix.directory }}
 
       - name: Pre-commit Terraform ${{ steps.minMax.outputs.minVersion }}
         # Run only validate pre-commit check on min version supported
         if: ${{ matrix.directory !=  '.' }}
-        uses: clowdhaus/terraform-composite-actions/pre-commit@v1.9.0
+        uses: clowdhaus/terraform-composite-actions/pre-commit@v1.11.1
         with:
           terraform-version: ${{ steps.minMax.outputs.minVersion }}
           tflint-version: ${{ env.TFLINT_VERSION }}
@@ -61,7 +61,7 @@ jobs:
       - name: Pre-commit Terraform ${{ steps.minMax.outputs.minVersion }}
         # Run only validate pre-commit check on min version supported
         if: ${{ matrix.directory ==  '.' }}
-        uses: clowdhaus/terraform-composite-actions/pre-commit@v1.9.0
+        uses: clowdhaus/terraform-composite-actions/pre-commit@v1.11.1
         with:
           terraform-version: ${{ steps.minMax.outputs.minVersion }}
           tflint-version: ${{ env.TFLINT_VERSION }}
@@ -75,10 +75,27 @@ jobs:
       # https://github.com/orgs/community/discussions/25678#discussioncomment-5242449
       - name: Delete huge unnecessary tools folder
         run: |
+          df -h
           rm -rf /opt/hostedtoolcache/CodeQL
           rm -rf /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk
           rm -rf /opt/hostedtoolcache/Ruby
           rm -rf /opt/hostedtoolcache/go
+          # And a little bit more
+          sudo apt-get -qq remove -y 'azure-.*'
+          sudo apt-get -qq remove -y 'cpp-.*'
+          sudo apt-get -qq remove -y 'dotnet-runtime-.*'
+          sudo apt-get -qq remove -y 'google-.*'
+          sudo apt-get -qq remove -y 'libclang-.*'
+          sudo apt-get -qq remove -y 'libllvm.*'
+          sudo apt-get -qq remove -y 'llvm-.*'
+          sudo apt-get -qq remove -y 'mysql-.*'
+          sudo apt-get -qq remove -y 'postgresql-.*'
+          sudo apt-get -qq remove -y 'php.*'
+          sudo apt-get -qq remove -y 'temurin-.*'
+          sudo apt-get -qq remove -y kubectl firefox powershell mono-devel
+          sudo apt-get -qq autoremove -y
+          sudo apt-get -qq clean
+          df -h
 
       - name: Checkout
         uses: actions/checkout@v4
@@ -88,10 +105,10 @@ jobs:
 
       - name: Terraform min/max versions
         id: minMax
-        uses: clowdhaus/terraform-min-max@v1.3.0
+        uses: clowdhaus/terraform-min-max@v1.3.1
 
       - name: Pre-commit Terraform ${{ steps.minMax.outputs.maxVersion }}
-        uses: clowdhaus/terraform-composite-actions/pre-commit@v1.9.0
+        uses: clowdhaus/terraform-composite-actions/pre-commit@v1.11.1
         with:
           terraform-version: ${{ steps.minMax.outputs.maxVersion }}
           tflint-version: ${{ env.TFLINT_VERSION }}
