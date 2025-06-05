@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [5.2.0](https://github.com/terraform-aws-modules/terraform-aws-acm/compare/v5.1.1...v5.2.0) (2025-06-05)
+
+
+### Features
+
+* Add support for private CA certificates ([#155](https://github.com/terraform-aws-modules/terraform-aws-acm/issues/155)) ([f5dffc6](https://github.com/terraform-aws-modules/terraform-aws-acm/commit/f5dffc6bb65f783661685585cc6d0b9799a8c7c1))
+
 ## [5.1.1](https://github.com/terraform-aws-modules/terraform-aws-acm/compare/v5.1.0...v5.1.1) (2024-10-11)
 
 
