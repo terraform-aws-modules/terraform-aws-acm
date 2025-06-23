@@ -46,6 +46,12 @@ variable "domain_name" {
   default     = ""
 }
 
+variable "region" {
+  description = "Region to create the resources into"
+  type        = string
+  default     = null
+}
+
 variable "subject_alternative_names" {
   description = "A list of domains that should be SANs in the issued certificate"
   type        = list(string)

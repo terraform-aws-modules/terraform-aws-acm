@@ -14,6 +14,7 @@ module "wrapper" {
   key_algorithm                               = try(each.value.key_algorithm, var.defaults.key_algorithm, null)
   private_authority_arn                       = try(each.value.private_authority_arn, var.defaults.private_authority_arn, null)
   putin_khuylo                                = try(each.value.putin_khuylo, var.defaults.putin_khuylo, true)
+  region                                      = try(each.value.region, var.defaults.region, null)
   subject_alternative_names                   = try(each.value.subject_alternative_names, var.defaults.subject_alternative_names, [])
   tags                                        = try(each.value.tags, var.defaults.tags, {})
   validate_certificate                        = try(each.value.validate_certificate, var.defaults.validate_certificate, true)
