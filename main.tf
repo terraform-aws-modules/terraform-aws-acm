@@ -25,6 +25,8 @@ resource "aws_acm_certificate" "this" {
   key_algorithm             = var.key_algorithm
   region                    = var.region
 
+  certificate_authority_arn = var.private_authority_arn
+
   options {
     certificate_transparency_logging_preference = var.certificate_transparency_logging_preference ? "ENABLED" : "DISABLED"
     export                                      = var.export
@@ -67,10 +69,9 @@ resource "aws_acm_certificate_validation" "this" {
   count = local.create_certificate && var.validation_method != null && var.validate_certificate && var.wait_for_validation ? 1 : 0
 
   certificate_arn = aws_acm_certificate.this[0].arn
+  region          = var.region
 
   validation_record_fqdns = flatten([aws_route53_record.validation[*].fqdn, var.validation_record_fqdns])
-
-  region = var.region
 
   timeouts {
     create = var.validation_timeout
