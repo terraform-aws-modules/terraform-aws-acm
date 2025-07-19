@@ -23,9 +23,11 @@ resource "aws_acm_certificate" "this" {
   subject_alternative_names = var.subject_alternative_names
   validation_method         = var.validation_method
   key_algorithm             = var.key_algorithm
+  region                    = var.region
 
   options {
     certificate_transparency_logging_preference = var.certificate_transparency_logging_preference ? "ENABLED" : "DISABLED"
+    export                                      = var.export
   }
 
   dynamic "validation_option" {
@@ -67,6 +69,8 @@ resource "aws_acm_certificate_validation" "this" {
   certificate_arn = aws_acm_certificate.this[0].arn
 
   validation_record_fqdns = flatten([aws_route53_record.validation[*].fqdn, var.validation_record_fqdns])
+
+  region = var.region
 
   timeouts {
     create = var.validation_timeout
