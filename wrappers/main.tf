@@ -11,6 +11,7 @@ module "wrapper" {
   distinct_domain_names                       = try(each.value.distinct_domain_names, var.defaults.distinct_domain_names, [])
   dns_ttl                                     = try(each.value.dns_ttl, var.defaults.dns_ttl, 60)
   domain_name                                 = try(each.value.domain_name, var.defaults.domain_name, "")
+  export                                      = try(each.value.export, var.defaults.export, null)
   key_algorithm                               = try(each.value.key_algorithm, var.defaults.key_algorithm, null)
   private_authority_arn                       = try(each.value.private_authority_arn, var.defaults.private_authority_arn, null)
   putin_khuylo                                = try(each.value.putin_khuylo, var.defaults.putin_khuylo, true)

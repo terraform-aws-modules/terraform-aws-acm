@@ -129,6 +129,12 @@ variable "key_algorithm" {
   default     = null
 }
 
+variable "export" {
+  description = "Whether the certificate can be exported. Valid values are ENABLED or DISABLED (default). Note Issuing an exportable certificate is subject to additional charges"
+  type        = string
+  default     = null
+}
+
 variable "private_authority_arn" {
   description = "Private Certificate Authority ARN for issuing private certificates"
   type        = string

@@ -29,6 +29,7 @@ resource "aws_acm_certificate" "this" {
 
   options {
     certificate_transparency_logging_preference = var.certificate_transparency_logging_preference ? "ENABLED" : "DISABLED"
+    export                                      = var.export
   }
 
   dynamic "validation_option" {
