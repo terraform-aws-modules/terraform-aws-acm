@@ -3,7 +3,7 @@
 # ----------------------------------------------------------------------------------------------------------------------
 
 terraform {
-  required_version = ">= 1.0.0, <=1.5.5"
+  required_version = ">= 1.0.0"
 
   # This module has been updated for helm v3 usage. We do not recommend using this version with helm v2.
   required_providers {
