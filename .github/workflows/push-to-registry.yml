@@ -15,7 +15,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: push modules to registry
-        uses: craftech-io/publish-terraform-module-action@v1.1.1
+        uses: craftech-io/publish-terraform-module-action@v1.3.1
         with:
           api-key: ${{ secrets.PRD_API_KEY_REGISTRY }}
           hostname: ${{ env.REGISTRY_HOST }}
@@ -23,6 +23,6 @@ jobs:
           module-name: ${{ github.event.repository.name }}
           system: aws
           version: ${{ github.ref_name }}
-          modules-path: modules/
+          path-to-zip: modules/
           lower-terraform-version: "0.99.99"
           higher-terraform-version: "1.5.6"
