@@ -5,21 +5,8 @@ locals {
   domain_name = trimsuffix(local.domain, ".")
 }
 
-provider "aws" {
-  alias = "route53"
-}
-
-provider "aws" {
-  alias = "acm"
-}
-
 module "acm" {
   source = "../../"
-
-  providers = {
-    aws.acm = aws,
-    aws.dns = aws
-  }
 
   domain_name = local.domain_name
   zone_id     = data.cloudflare_zone.this.id
