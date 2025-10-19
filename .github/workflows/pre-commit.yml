@@ -118,7 +118,7 @@ jobs:
           rmz -f /opt/hostedtoolcache/Ruby &
           rmz -f /opt/hostedtoolcache/go &
 
-          if ${{ github.repository }} == 'terraform-aws-modules/terraform-aws-iam';
+          if ${{ github.repository }} == 'terraform-aws-modules/terraform-aws-security-group';
           then
             sudo rmz -f /usr/local/lib/android &
             sudo rmz -f /usr/share/dotnet &
