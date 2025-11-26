@@ -76,4 +76,6 @@ resource "aws_acm_certificate_validation" "this" {
   timeouts {
     create = var.validation_timeout
   }
+
+  depends_on = [aws_route53_record.validation]
 }
