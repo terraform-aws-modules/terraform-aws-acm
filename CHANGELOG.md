@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [6.2.0](https://github.com/terraform-aws-modules/terraform-aws-acm/compare/v6.1.1...v6.2.0) (2025-11-29)
+
+### Features
+
+* Downgrade min supported version of Terraform to `v1.5.7` ([#167](https://github.com/terraform-aws-modules/terraform-aws-acm/issues/167)) ([6c94f45](https://github.com/terraform-aws-modules/terraform-aws-acm/commit/6c94f459998ae02b7050e8123e8877a370c15261))
+
 ## [6.1.1](https://github.com/terraform-aws-modules/terraform-aws-acm/compare/v6.1.0...v6.1.1) (2025-10-21)
 
 ### Bug Fixes
