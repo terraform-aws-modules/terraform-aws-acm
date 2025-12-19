@@ -4,7 +4,7 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = ">= 6.4"
+      version = ">= 6.27"
     }
     # Terraform v1.0.0 only functional with cloudflare versions less than or equal to 3.33.0
     # https://github.com/cloudflare/terraform-provider-cloudflare/issues/2340
