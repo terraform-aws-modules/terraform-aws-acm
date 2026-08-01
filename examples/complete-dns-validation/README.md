@@ -22,20 +22,20 @@ Note that this example may create resources which cost money. Run `terraform des
 ## Requirements
 
 | Name | Version |
-|------|---------|
+| ---- | ------- |
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.5.7 |
 | <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 6.28 |
 
 ## Providers
 
 | Name | Version |
-|------|---------|
+| ---- | ------- |
 | <a name="provider_aws"></a> [aws](#provider\_aws) | >= 6.28 |
 
 ## Modules
 
 | Name | Source | Version |
-|------|--------|---------|
+| ---- | ------ | ------- |
 | <a name="module_acm"></a> [acm](#module\_acm) | ../../ | n/a |
 | <a name="module_acm_multi_domain"></a> [acm\_multi\_domain](#module\_acm\_multi\_domain) | ../../ | n/a |
 | <a name="module_acm_only"></a> [acm\_only](#module\_acm\_only) | ../../ | n/a |
@@ -44,7 +44,7 @@ Note that this example may create resources which cost money. Run `terraform des
 ## Resources
 
 | Name | Type |
-|------|------|
+| ---- | ---- |
 | [aws_route53_zone.extra](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route53_zone) | resource |
 | [aws_route53_zone.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route53_zone) | resource |
 | [aws_route53_zone.extra](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/route53_zone) | data source |
@@ -53,7 +53,7 @@ Note that this example may create resources which cost money. Run `terraform des
 ## Inputs
 
 | Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:--------:|
+| ---- | ----------- | ---- | ------- | :------: |
 | <a name="input_domain"></a> [domain](#input\_domain) | Domain to be used for the tests | `string` | `"terraform-aws-modules.modules.tf"` | no |
 | <a name="input_extra_domain"></a> [extra\_domain](#input\_extra\_domain) | Extra domain to be used in acm\_multi\_domain module | `string` | `"extra.terraform-aws-modules.modules.tf"` | no |
 | <a name="input_use_existing_route53_zone"></a> [use\_existing\_route53\_zone](#input\_use\_existing\_route53\_zone) | Use existing (via data source) or create new zone (will fail validation, if zone is not reachable) | `bool` | `true` | no |
@@ -61,7 +61,7 @@ Note that this example may create resources which cost money. Run `terraform des
 ## Outputs
 
 | Name | Description |
-|------|-------------|
+| ---- | ----------- |
 | <a name="output_acm_certificate_arn"></a> [acm\_certificate\_arn](#output\_acm\_certificate\_arn) | The ARN of the certificate |
 | <a name="output_acm_certificate_domain_validation_options"></a> [acm\_certificate\_domain\_validation\_options](#output\_acm\_certificate\_domain\_validation\_options) | A list of attributes to feed into other resources to complete certificate validation. Can have more than one element, e.g. if SANs are defined. Only set if DNS-validation was used. |
 | <a name="output_acm_certificate_status"></a> [acm\_certificate\_status](#output\_acm\_certificate\_status) | Status of the certificate. |
