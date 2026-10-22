@@ -57,6 +57,24 @@ module "acm" {
 
 ```
 
+## Usage with existing DNS validation records
+
+If the DNS validation records required by ACM already exist, set `create_route53_records = false`. You can leave `validation_record_fqdns` unset: the module still waits for ACM to issue the certificate with the default `validate_certificate = true` and `wait_for_validation = true` settings.
+
+```hcl
+module "acm" {
+  source = "terraform-aws-modules/acm/aws"
+
+  domain_name            = "my-domain.com"
+  validation_method      = "DNS"
+  create_route53_records = false
+}
+```
+
+The existing records must match the certificate's ACM DNS validation records and remain publicly resolvable. ACM uses these records to validate the certificate.
+
+When creating DNS records in the same Terraform configuration, pass their FQDN attributes through `validation_record_fqdns` to establish a dependency on their creation, as shown in the separate AWS providers example below.
+
 ## [Usage with CloudFront](https://aws.amazon.com/premiumsupport/knowledge-center/install-ssl-cloudfront/)
 
 ```hcl
@@ -223,7 +241,7 @@ No modules.
 | <a name="input_validation_allow_overwrite_records"></a> [validation\_allow\_overwrite\_records](#input\_validation\_allow\_overwrite\_records) | Whether to allow overwrite of Route53 records | `bool` | `true` | no |
 | <a name="input_validation_method"></a> [validation\_method](#input\_validation\_method) | Which method to use for validation. DNS or EMAIL are valid. This parameter must not be set for certificates that were imported into ACM and then into Terraform. | `string` | `null` | no |
 | <a name="input_validation_option"></a> [validation\_option](#input\_validation\_option) | The domain name that you want ACM to use to send you validation emails. This domain name is the suffix of the email addresses that you want ACM to use. | `any` | `{}` | no |
-| <a name="input_validation_record_fqdns"></a> [validation\_record\_fqdns](#input\_validation\_record\_fqdns) | When validation is set to DNS and the DNS validation records are set externally, provide the fqdns for the validation | `list(string)` | `[]` | no |
+| <a name="input_validation_record_fqdns"></a> [validation\_record\_fqdns](#input\_validation\_record\_fqdns) | Optional FQDNs of externally managed DNS validation records. Reference record resource attributes to establish a dependency on their creation. Can be omitted when the required DNS records already exist | `list(string)` | `[]` | no |
 | <a name="input_validation_timeout"></a> [validation\_timeout](#input\_validation\_timeout) | Define maximum timeout to wait for the validation to complete | `string` | `null` | no |
 | <a name="input_wait_for_validation"></a> [wait\_for\_validation](#input\_wait\_for\_validation) | Whether to wait for the validation to complete | `bool` | `true` | no |
 | <a name="input_zone_id"></a> [zone\_id](#input\_zone\_id) | The ID of the hosted zone to contain this record. Required when validating via Route53 | `string` | `""` | no |

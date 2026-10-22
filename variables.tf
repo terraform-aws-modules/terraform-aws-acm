@@ -82,7 +82,7 @@ variable "create_route53_records" {
 }
 
 variable "validation_record_fqdns" {
-  description = "When validation is set to DNS and the DNS validation records are set externally, provide the fqdns for the validation"
+  description = "Optional FQDNs of externally managed DNS validation records. Reference record resource attributes to establish a dependency on their creation. Can be omitted when the required DNS records already exist"
   type        = list(string)
   default     = []
 }
